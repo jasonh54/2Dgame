@@ -4,6 +4,9 @@ class GameObject{
   public float w;
   public float h;
   public float r;
+  public float speedx = 0;
+  public float speedy = 0;
+  public PImage img;
   public String shape;
   
   
@@ -29,6 +32,13 @@ class GameObject{
     this.y = y;
     this.r = r;
     this.shape = "circle";
+  }
+  
+  public void display(){
+    
+  }
+  public void update(){
+    
   }
   
   
