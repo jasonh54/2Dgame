@@ -1,4 +1,6 @@
 class Enemy extends GameObject{
+  public int health = 0;
+  
   public void Enemy(){
     super.GameObject();
   }
