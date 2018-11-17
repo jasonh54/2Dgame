@@ -10,7 +10,8 @@ class GameObject{
   public String shape;
   
   
-  public void GameObject(){
+  public GameObject(){
+    print("running gameobject constructor");
     this.x = 0;
     this.y = 0;
     this.w = 0;
@@ -19,7 +20,7 @@ class GameObject{
     this.shape = "empty";
   }
   
-  public void GameObject(float x, float y, float w, float h){
+  public GameObject(float x, float y, float w, float h){
     this.x = x;
     this.y = y;
     this.w = w;
@@ -27,7 +28,7 @@ class GameObject{
     this.shape = "rect";
   }
   
-  public void GameObject(float x, float y, float r){
+  public GameObject(float x, float y, float r){
     this.x = x;
     this.y = y;
     this.r = r;
@@ -35,12 +36,12 @@ class GameObject{
   }
   
   public void display(){
-    
+    image(img, this.x, this.y);
   }
+  
   public void update(){
     
   }
   
   
-
 }
