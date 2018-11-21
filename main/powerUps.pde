@@ -22,9 +22,20 @@ class PowerUps extends GameObject{
 class HealPU extends PowerUps{
   public HealPU(){
     super();
-    this.speedy = 10;
-    
-    
+    this.speedy = 10; 
   }
-  
+}
+
+class SpeedPU extends PowerUps{
+  public SpeedPU(){
+    super();
+    this.speedy = 10;
+  }
+}
+
+class ShieldPU extends PowerUps{
+  public ShieldPU(){
+    super();
+    this.speedy = 10;
+  }
 }
