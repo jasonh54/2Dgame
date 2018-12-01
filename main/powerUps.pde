@@ -1,13 +1,41 @@
 class PowerUps extends GameObject{
-  public void PowerUps(){
-    super.GameObject();
+  
+  
+  public PowerUps(){
+    super();
+    
+    
   }
   
-  public void PowerUps(float x, float y, float w, float h){
-    super.GameObject(x, y, w, h);
+  public PowerUps(float x, float y, float w, float h){
+    
   }
-  public void PowerUps(float x, float y, float r){
-    super.GameObject(x, y, r);
+  public PowerUps(float x, float y, float r){
+    
   }
   
+  public void update(){
+    this.y += this.speedy;
+  }
+}
+
+class HealPU extends PowerUps{
+  public HealPU(){
+    super();
+    this.speedy = 10; 
+  }
+}
+
+class SpeedPU extends PowerUps{
+  public SpeedPU(){
+    super();
+    this.speedy = 10;
+  }
+}
+
+class ShieldPU extends PowerUps{
+  public ShieldPU(){
+    super();
+    this.speedy = 10;
+  }
 }
