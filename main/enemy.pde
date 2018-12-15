@@ -4,12 +4,6 @@ class Enemy extends GameObject{
   public Enemy(){
     
   }
-  public Enemy(float x, float y, float w, float h){
-    
-  }
-  public Enemy(float x, float y, float r){
-    
-  }
   
   
 }

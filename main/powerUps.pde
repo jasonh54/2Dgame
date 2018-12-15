@@ -1,19 +1,12 @@
 class PowerUps extends GameObject{
   
   
-  public PowerUps(){
-    super();
+  public PowerUps(PImage img){
+    super(random(0, 800), 0, 30, 30, img);
     
     
   }
-  
-  public PowerUps(float x, float y, float w, float h){
-    
-  }
-  public PowerUps(float x, float y, float r){
-    
-  }
-  
+
   public void update(){
     this.y += this.speedy;
   }
@@ -21,21 +14,21 @@ class PowerUps extends GameObject{
 
 class HealPU extends PowerUps{
   public HealPU(){
-    super();
+    super(images.get("healitem"));
     this.speedy = 10; 
   }
 }
 
 class SpeedPU extends PowerUps{
   public SpeedPU(){
-    super();
+    super(images.get("speeditem"));
     this.speedy = 10;
   }
 }
 
 class ShieldPU extends PowerUps{
   public ShieldPU(){
-    super();
+    super(images.get("shielditem"));
     this.speedy = 10;
   }
 }
