@@ -1,7 +1,7 @@
 public class Player extends GameObject{
   private int health = 0;
   public boolean shoot = true;
-  
+  private int timestamp = 0;
 
 
   public Player(){
@@ -14,6 +14,9 @@ public class Player extends GameObject{
     this.x += this.speedx;
     this.y += this.speedy;
     this.display();
+    if (this.timestamp + 1000 < millis()) {
+      p.shoot = true;
+    }
   }
   
 }
@@ -35,7 +38,7 @@ void keyPressed() {
     if(p.shoot == true){
       m.add(new Projectile(p.x, p.y));
       p.shoot = false;
-      previousS = currentS;
+      p.timestamp = millis();
     }
   }
 }

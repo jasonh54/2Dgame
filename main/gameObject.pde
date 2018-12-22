@@ -8,6 +8,7 @@ class GameObject{
   public float speedx = 0;
   public float speedy = 0;
   public PImage img;
+  public boolean destroy = false;
 
   
   
