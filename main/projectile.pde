@@ -1,11 +1,15 @@
 class Projectile extends GameObject{
   
-  public void Projectile(){
+  public Projectile(float x, float y){
+    super(x, y, 25, 25, images.get("missile"));
     
   }
   
-  public void Projectile(float x, float y, float w, float h){
-    
+  
+  public void update(){
+    this.speedy += 0.1;
+    this.y -= this.speedy;
+    this.display();
   }
   
 }
