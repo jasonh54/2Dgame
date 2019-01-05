@@ -1,15 +1,39 @@
 class Enemy extends GameObject{
   public int health = 0;
+  private int timestamp = 0;
   
-  public void Enemy(){
-    
-  }
-  public void Enemy(float x, float y, float w, float h){
-    
-  }
-  public void Enemy(float x, float y, float r){
-    
+  public Enemy(int w,int h, PImage img){
+    super(random(0, 800), 0, w, h, img);
   }
   
-  
+}
+
+
+class BasicEnemy extends Enemy{
+  public BasicEnemy() {
+    super(40, 40, images.get("basicenemy"));
+    this.speedy = 3;
+  }
+  public void update(){
+    this.y = this.y + this.speedy;
+    display();
+    for (int i = 0; i < m.size(); i++){
+      if (collisionCheck(this, m.get(i))) {
+        this.destroy = true;
+        m.get(i).destroy = true;
+      }
+    }
+  }
+}
+
+class StrongEnemy extends Enemy{
+  public StrongEnemy() {
+    super(75, 75, images.get("strongenemy"));
+  }
+}
+
+class BossEnemy extends Enemy{
+  public BossEnemy() {
+    super(100, 100, images.get("bossenemy"));
+  }
 }
