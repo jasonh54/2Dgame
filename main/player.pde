@@ -1,6 +1,6 @@
 public class Player extends GameObject{
   private int health = 0;
-  public Shield shield;
+  //public Shield shield;
   public void Player(){
     super.GameObject();
   }
