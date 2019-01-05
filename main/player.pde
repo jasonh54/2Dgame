@@ -1,5 +1,5 @@
 public class Player extends GameObject{
-  private int health = 0;
+  private int health = 10;
   public boolean shoot = true;
   private int timestamp = 0;
 
@@ -13,6 +13,7 @@ public class Player extends GameObject{
     this.x += this.speedx;
     this.y += this.speedy;
     this.display();
+    ui.getPData(this.health, this.timestamp);
     if (this.timestamp + 1000 < millis()) {
       p.shoot = true;
     }
