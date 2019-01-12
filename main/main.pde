@@ -4,6 +4,7 @@ Player p;
 ArrayList<GameObject> m = new ArrayList<GameObject>();
 ArrayList<GameObject> e = new ArrayList<GameObject>();
 
+UI ui = new UI();
 
 void setup(){
   images.put("healitem", loadImage("../images/heal-powerup.png"));
@@ -25,6 +26,8 @@ void setup(){
 void draw(){
   clear();
   p.update();
+  ui.drawCooldown();
+  ui.drawHP();
   updateArray(m);
   updateArray(e);
   spawnEnemy();
@@ -38,7 +41,7 @@ void updateArray(ArrayList<GameObject> a) {
   }
 }
 
-void boolean collisionCheck(GameObject a, GameObject b) {
+boolean collisionCheck(GameObject a, GameObject b) {
   float xdistance = abs(a.x - b.x) - a.w2 - b.w2;  
   float ydistance = abs(a.y - b.y) - a.h2 - b.h2;
   if (ydistance < 0 && xdistance < 0) {
