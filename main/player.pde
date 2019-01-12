@@ -1,5 +1,5 @@
 public class Player extends GameObject{
-  private int health = 10;
+  public int health = 5;
   public boolean shoot = true;
   private int timestamp = 0;
 
@@ -17,6 +17,10 @@ public class Player extends GameObject{
     if (this.timestamp + 1000 < millis()) {
       p.shoot = true;
     }
+  }
+  
+  public void changeHP(){
+    health--;
   }
   
 }
@@ -39,7 +43,7 @@ void keyPressed() {
       m.add(new Projectile(p.x, p.y));
       p.shoot = false;
       p.timestamp = millis();
-    }
+    } p.changeHP();
   }
 }
 
