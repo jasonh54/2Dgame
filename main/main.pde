@@ -2,6 +2,7 @@ Player p;
 HashMap<String, PImage> images = new HashMap<String, PImage>();
 ArrayList<GameObject> m = new ArrayList<GameObject>();
 ArrayList<GameObject> e = new ArrayList<GameObject>();
+ArrayList<GameObject> sp = new ArrayList<GameObject>();
 
 UI ui = new UI();
 

@@ -2,6 +2,7 @@ public class Player extends GameObject{
   public int health = 5;
   public boolean shoot = true;
   private int timestamp = 0;
+  
 
 
   public Player(){
@@ -24,19 +25,20 @@ public class Player extends GameObject{
   }
   
 }
+int speed = 0;
 
 void keyPressed() {
   if (keyCode == 87) {
-    p.speedy = -5;
+    p.speedy = -5 - speed;
   }
   if (keyCode == 83) {
-    p.speedy = 5;
+    p.speedy = 5 + speed;
   }
   if (keyCode == 68) {
-    p.speedx = 5;
+    p.speedx = 5 + speed;
   }
   if (keyCode == 65) {
-    p.speedx = -5;
+    p.speedx = -5 - speed;
   }
   if (keyCode == 32) {
     if(p.shoot == true){
