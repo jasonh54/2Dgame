@@ -17,12 +17,7 @@ class BasicEnemy extends Enemy{
   public void update(){
     this.y = this.y + this.speedy;
     display();
-    for (int i = 0; i < m.size(); i++){
-      if (collisionCheck(this, m.get(i))) {
-        this.destroy = true;
-        m.get(i).destroy = true;
-      }
-    }
+    
   }
 }
 
