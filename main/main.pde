@@ -1,10 +1,11 @@
-
-HashMap<String, PImage> images = new HashMap<String, PImage>();
 Player p;
+HashMap<String, PImage> images = new HashMap<String, PImage>();
 ArrayList<GameObject> m = new ArrayList<GameObject>();
 ArrayList<GameObject> e = new ArrayList<GameObject>();
 
 UI ui = new UI();
+
+PFont SeventhS;
 
 void setup(){
   images.put("healitem", loadImage("../images/heal-powerup.png"));
@@ -20,18 +21,16 @@ void setup(){
   
   size(800, 800);
   
- 
+  SeventhS = createFont("7th Service",20);
 }
 
 void draw(){
   clear();
   p.update();
-  ui.drawCooldown();
-  ui.drawHP();
   updateArray(m);
   updateArray(e);
   spawnEnemy();
-
+  ui.update();
   
 }
 
