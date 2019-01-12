@@ -40,10 +40,10 @@ void keyPressed() {
   }
   if (keyCode == 32) {
     if(p.shoot == true){
-      m.add(new Projectile(p.x, p.y));
+      m.addObject(new Projectile(p.x, p.y));
       p.shoot = false;
       p.timestamp = millis();
-    } p.changeHP();
+    }
   }
 }
 

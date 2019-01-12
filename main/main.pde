@@ -1,7 +1,7 @@
 Player p;
 HashMap<String, PImage> images = new HashMap<String, PImage>();
-ArrayList<GameObject> m = new ArrayList<GameObject>();
-ArrayList<GameObject> e = new ArrayList<GameObject>();
+Group m = new Group();
+Group e = new Group();
 
 UI ui = new UI();
 
@@ -27,18 +27,20 @@ void setup(){
 void draw(){
   clear();
   p.update();
-  updateArray(m);
-  updateArray(e);
+  //updateArray(m);
+  m.update();
+  //updateArray(e);
+  e.update();
   spawnEnemy();
   ui.update();
   
 }
 
-void updateArray(ArrayList<GameObject> a) {
+/*void updateArray(ArrayList<GameObject> a) {
   for (int i = 0; i < a.size(); i++) {
     a.get(i).update();
   }
-}
+}*/
 
 boolean collisionCheck(GameObject a, GameObject b) {
   float xdistance = abs(a.x - b.x) - a.w2 - b.w2;  
@@ -51,11 +53,12 @@ boolean collisionCheck(GameObject a, GameObject b) {
 }
 
 boolean spawn = true;
+
 void spawnEnemy() {
   
   if ((second() % 2) == 0 ){
     if(spawn == true){
-      e.add(new BasicEnemy());
+      e.addObject(new BasicEnemy());
       spawn = false;
     }
   } else {
