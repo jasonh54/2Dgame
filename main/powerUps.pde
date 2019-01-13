@@ -22,7 +22,11 @@ class HealPU extends PowerUps{
 class SpeedPU extends PowerUps{
   public SpeedPU(){
     super(images.get("speeditem"));
-    this.speedy = 10;
+    this.speedy = 1;
+  }
+  public void update() {
+    this.y = this.y + this.speedy;
+    display();
   }
 }
 

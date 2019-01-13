@@ -2,7 +2,8 @@ public class Player extends GameObject{
   private int health = 0;
   public boolean shoot = true;
   private int timestamp = 0;
-
+  private int timer = 0;
+  private float tempspeed = p.speedy * 2;
 
   public Player(){
     super(400, 600, 50, 50, images.get("playership"));
@@ -17,6 +18,16 @@ public class Player extends GameObject{
     if (this.timestamp + 1000 < millis()) {
       p.shoot = true;
     }
+    for (int i = 0; i < sp.size(); i++) {
+      if (collisionCheck(this, sp.get(i))) {
+        sp.get(i).destroy = true;
+        timer = millis();
+        while((timer + 10000) >= millis()) {
+          this.speedy = 
+        }
+      }
+    }
+    
   }
   
 }

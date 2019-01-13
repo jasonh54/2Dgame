@@ -3,6 +3,7 @@ HashMap<String, PImage> images = new HashMap<String, PImage>();
 Player p;
 ArrayList<GameObject> m = new ArrayList<GameObject>();
 ArrayList<GameObject> e = new ArrayList<GameObject>();
+ArrayList<GameObject> sp = new ArrayList<GameObject>();
 
 
 void setup(){
@@ -32,6 +33,7 @@ void draw(){
   p.update();
   updateArray(m);
   updateArray(e);
+  updateArray(sp);
   spawnEnemy();
 
   
@@ -43,7 +45,7 @@ void updateArray(ArrayList<GameObject> a) {
   }
 }
 
-void boolean collisionCheck(GameObject a, GameObject b) {
+boolean collisionCheck(GameObject a, GameObject b) {
   float xdistance = abs(a.x - b.x) - a.w2 - b.w2;  
   float ydistance = abs(a.y - b.y) - a.h2 - b.h2;
   if (ydistance < 0 && xdistance < 0) {
@@ -53,15 +55,26 @@ void boolean collisionCheck(GameObject a, GameObject b) {
   }
 }
 
-boolean spawn = true;
-void spawnEnemy() {
-  
-  if ((second() % 2) == 0 ){
-    if(spawn == true){
+boolean espawn = true;
+boolean spspawn = true;
+
+void spawnEnemy(){
+  if ((second() % 2) == 0){
+    if(espawn == true){
       e.add(new BasicEnemy());
-      spawn = false;
+      espawn = false;
     }
   } else {
-    spawn = true;
+    espawn = true;
+  }
+}
+void spawnSpeed() {
+  if ((second() % 5) == 0) {
+    if(spspawn == true) {
+      sp.add(new SpeedPU());
+      spspawn = false;
+    }
+  } else {
+    spspawn = true;
   }
 }
