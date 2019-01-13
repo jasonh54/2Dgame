@@ -1,10 +1,12 @@
-
-HashMap<String, PImage> images = new HashMap<String, PImage>();
 Player p;
-ArrayList<GameObject> m = new ArrayList<GameObject>();
-ArrayList<GameObject> e = new ArrayList<GameObject>();
-ArrayList<GameObject> sp = new ArrayList<GameObject>();
+HashMap<String, PImage> images = new HashMap<String, PImage>();
 
+Group m = new Group();
+Group e = new Group();
+
+UI ui = new UI();
+
+PFont SeventhS;
 
 void setup(){
   PImage healitem = loadImage("../images/heal-powerup.png");
@@ -25,25 +27,38 @@ void setup(){
   
   size(800, 800);
   
- 
+  SeventhS = createFont("7th Service",20);
+  
+  e.spawn = true;
+  e.spawnTimer = 2000;
+  e.object = new BasicEnemy();
 }
 
 void draw(){
   clear();
   p.update();
+<<<<<<< HEAD
   updateArray(m);
   updateArray(e);
   updateArray(sp);
   spawnEnemy();
 
+=======
+  //updateArray(m);
+  m.update();
+  //updateArray(e);
+  e.update();
+  //spawnEnemy();
+  ui.update();
+>>>>>>> 934a9d9a6420321360d7d463947b36863c516f48
   
 }
 
-void updateArray(ArrayList<GameObject> a) {
+/*void updateArray(ArrayList<GameObject> a) {
   for (int i = 0; i < a.size(); i++) {
     a.get(i).update();
   }
-}
+}*/
 
 boolean collisionCheck(GameObject a, GameObject b) {
   float xdistance = abs(a.x - b.x) - a.w2 - b.w2;  
@@ -55,6 +70,7 @@ boolean collisionCheck(GameObject a, GameObject b) {
   }
 }
 
+<<<<<<< HEAD
 boolean espawn = true;
 boolean spspawn = true;
 
@@ -78,3 +94,18 @@ void spawnSpeed() {
     spspawn = true;
   }
 }
+=======
+//boolean spawn = true;
+
+//void spawnEnemy() {
+  
+//  if ((second() % 2) == 0 ){
+//    if(spawn == true){
+//      e.addObject(new BasicEnemy());
+//      spawn = false;
+//    }
+//  } else {
+//    spawn = true;
+//  }
+//}
+>>>>>>> 934a9d9a6420321360d7d463947b36863c516f48
