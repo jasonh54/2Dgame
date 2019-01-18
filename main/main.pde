@@ -1,5 +1,6 @@
 Player p;
 HashMap<String, PImage> images = new HashMap<String, PImage>();
+
 Group m = new Group();
 Group e = new Group();
 
@@ -22,6 +23,10 @@ void setup(){
   size(800, 800);
   
   SeventhS = createFont("7th Service",20);
+  
+  e.spawn = true;
+  e.spawnTimer = 2000;
+  e.object = new BasicEnemy();
 }
 
 void draw(){
@@ -31,7 +36,7 @@ void draw(){
   m.update();
   //updateArray(e);
   e.update();
-  spawnEnemy();
+  //spawnEnemy();
   ui.update();
   
 }
@@ -52,16 +57,16 @@ boolean collisionCheck(GameObject a, GameObject b) {
   }
 }
 
-boolean spawn = true;
+//boolean spawn = true;
 
-void spawnEnemy() {
+//void spawnEnemy() {
   
-  if ((second() % 2) == 0 ){
-    if(spawn == true){
-      e.addObject(new BasicEnemy());
-      spawn = false;
-    }
-  } else {
-    spawn = true;
-  }
-}
+//  if ((second() % 2) == 0 ){
+//    if(spawn == true){
+//      e.addObject(new BasicEnemy());
+//      spawn = false;
+//    }
+//  } else {
+//    spawn = true;
+//  }
+//}
