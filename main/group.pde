@@ -22,7 +22,7 @@ class Group{
     }
     if (createObject == true) {
       try {
-        addObject((BasicEnemy) object.clone();
+        addObject((GameObject)object.clone());
         createObject = false;
         timestamp = millis();
         println(timestamp);

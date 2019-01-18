@@ -1,4 +1,4 @@
-class GameObject{
+class GameObject implements Cloneable{
   public float x;
   public float y;
   public float w;
@@ -33,6 +33,9 @@ class GameObject{
     this.img = img;
   }
   
+  protected Object clone() throws CloneNotSupportedException{
+    return super.clone();
+  }
   
   public void display(){
     image(this.img, this.x - this.w2, this.y - this.h2, this.w, this.h);
