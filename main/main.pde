@@ -74,7 +74,7 @@ GameObject[] collisionCheck(Group a, Group b){
   
   //loop time
   for(int k = 0; k < a.Go.size(); k++){
-    for(int i = 0; i < a.Go.size(); i++){
+    for(int i = 0; i < b.Go.size(); i++){
       if(collisionCheck(a.Go.get(k), b.Go.get(i))){
          collide[0] = a.Go.get(k);
         collide[1] = b.Go.get(i);
