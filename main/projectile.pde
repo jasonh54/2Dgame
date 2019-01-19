@@ -9,6 +9,7 @@ class Projectile extends GameObject{
   public void update(){
     this.speedy += 0.1;
     this.y -= this.speedy;
+    
     this.display();
   }
   
