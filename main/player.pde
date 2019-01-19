@@ -1,6 +1,7 @@
 public class Player extends GameObject{
   public int health = 5;
   public boolean shoot = true;
+  public boolean shield = false;
   private int timestamp = 0;
   
 
