@@ -68,6 +68,21 @@ boolean collisionCheck(GameObject b, Group a){
   return false;
 }
 
+GameObject[] collisionCheck(Group a, Group b){
+  GameObject[] collide = new GameObject[2];
+  GameObject[] mywilltolive = new GameObject[0];
+  
+  //loop time
+  for(int i = 0; i < a.Go.size(); i++){
+    if(collisionCheck(a.Go.get(i), b.Go.get(i))){
+        collide[0] = a.Go.get(i);
+        collide[1] = b.Go.get(i);
+        return collide;
+  } 
+  return mywilltolive; 
+  
+}
+
 //boolean spawn = true;
 
 //void spawnEnemy() {
