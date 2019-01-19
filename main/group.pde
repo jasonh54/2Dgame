@@ -38,6 +38,9 @@ class Group{
     
   }
   
+  public void addObject(GameObject hp){
+    Go.add(hp);
+  }
   
   
   

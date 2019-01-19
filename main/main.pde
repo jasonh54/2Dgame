@@ -65,7 +65,7 @@ GameObject[] collisionCheck(Group a, GameObject b){
   //loop through the group and check if every item in the group collides with a single game object
   for (int i = 0; i < a.Go.size(); i++) {
     if (collisionCheck(a.Go.get(i), b) == true) {
-      GameObject[] collide = new GameObject[1];
+      GameObject[] collide = new GameObject[2];
       collide[0] = a.Go.get(i);
       collide[1] = b;
       return collide;
@@ -79,7 +79,7 @@ GameObject[] collisionCheck(GameObject b, Group a){
   //loop through the group and check if every item in the group collides with a single game object
   for (int i = 0; i < a.Go.size(); i++) {
     if (collisionCheck(a.Go.get(i), b) == true) {
-      GameObject[] collide = new GameObject[1];
+      GameObject[] collide = new GameObject[2];
       collide[0] = a.Go.get(i);
       collide[1] = b;
       return collide;
