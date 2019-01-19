@@ -1,6 +1,6 @@
 class Group{
   
-  private ArrayList<GameObject> Go = new ArrayList<GameObject>();
+  public ArrayList<GameObject> Go = new ArrayList<GameObject>();
   private boolean spawn = false;
   private boolean createObject = false;
   private float spawnTimer = 0;
@@ -37,6 +37,8 @@ class Group{
     Go.add(m);
     
   }
+  
+  
   
   
   
