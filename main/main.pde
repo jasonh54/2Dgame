@@ -3,6 +3,7 @@ HashMap<String, PImage> images = new HashMap<String, PImage>();
 
 Group m = new Group();
 Group e = new Group();
+Group hp = new Group();
 
 UI ui = new UI();
 
@@ -36,6 +37,8 @@ void draw(){
   m.update();
   //updateArray(e);
   e.update();
+  //updateArray(hp);
+  hp.update();
   //spawnEnemy();
   ui.update();
   
