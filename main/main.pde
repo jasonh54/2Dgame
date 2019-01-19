@@ -41,6 +41,7 @@ void draw(){
   
 }
 
+
 /*void updateArray(ArrayList<GameObject> a) {
   for (int i = 0; i < a.size(); i++) {
     a.get(i).update();
@@ -55,6 +56,16 @@ boolean collisionCheck(GameObject a, GameObject b) {
   } else {
     return false;
   }
+}
+
+boolean collisionCheck(Group a, GameObject b){
+  //loop through the group and check if every item in the group collides with a single game object
+  return false;
+}
+
+boolean collisionCheck(GameObject b, Group a){
+  //loop through the group and check if every item in the group collides with a single game object
+  return false;
 }
 
 //boolean spawn = true;
