@@ -58,14 +58,32 @@ boolean collisionCheck(GameObject a, GameObject b) {
   }
 }
 
-boolean collisionCheck(Group a, GameObject b){
+GameObject[] collisionCheck(Group a, GameObject b){
   //loop through the group and check if every item in the group collides with a single game object
-  return false;
+  for (int i = 0; i < a.Go.size(); i++) {
+    if (collisionCheck(a.Go.get(i), b) == true) {
+      GameObject[] collide = new GameObject[1];
+      collide[0] = a.Go.get(i);
+      collide[1] = b;
+      return collide;
+    }
+  }
+  GameObject[] sadnothing = new GameObject[0];
+  return sadnothing;
 }
 
-boolean collisionCheck(GameObject b, Group a){
+GameObject[] collisionCheck(GameObject b, Group a){
   //loop through the group and check if every item in the group collides with a single game object
-  return false;
+  for (int i = 0; i < a.Go.size(); i++) {
+    if (collisionCheck(a.Go.get(i), b) == true) {
+      GameObject[] collide = new GameObject[1];
+      collide[0] = a.Go.get(i);
+      collide[1] = b;
+      return collide;
+    }
+  }
+  GameObject[] sadnothing = new GameObject[0];
+  return sadnothing;
 }
 
 GameObject[] collisionCheck(Group a, Group b){
