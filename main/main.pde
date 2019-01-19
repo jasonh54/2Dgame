@@ -91,14 +91,17 @@ GameObject[] collisionCheck(Group a, Group b){
   GameObject[] mywilltolive = new GameObject[0];
   
   //loop time
-  for(int i = 0; i < a.Go.size(); i++){
-    if(collisionCheck(a.Go.get(i), b.Go.get(i))){
-        collide[0] = a.Go.get(i);
+  for(int k = 0; k < a.Go.size(); k++){
+    for(int i = 0; i < a.Go.size(); i++){
+      if(collisionCheck(a.Go.get(k), b.Go.get(i))){
+         collide[0] = a.Go.get(k);
         collide[1] = b.Go.get(i);
         return collide;
-  } 
-  return mywilltolive; 
-  
+      } 
+     }
+  }
+    
+  return mywilltolive;
 }
 
 //boolean spawn = true;
