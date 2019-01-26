@@ -80,8 +80,13 @@ GameObject[] collisionCheck(GameObject b, Group a){
   for (int i = 0; i < a.Go.size(); i++) {
     if (collisionCheck(a.Go.get(i), b) == true) {
       GameObject[] collide = new GameObject[2];
+<<<<<<< HEAD
       collide[0] = a.Go.get(i);
       collide[1] = b;
+=======
+      collide[0] = b;
+      collide[1] = a.Go.get(i);
+>>>>>>> 6a645782ab91b4741c0ded77076b5d035c4daf4e
       return collide;
     }
   }
