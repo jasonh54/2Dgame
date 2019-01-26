@@ -22,6 +22,8 @@ class BasicEnemy extends Enemy{
     if (proj.length > 1){
       //print out a message 
       println("Collided with missile");
+      proj[0].destroy = true;
+      proj[1].destroy = true;
     }
     
     display();

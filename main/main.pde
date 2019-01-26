@@ -3,8 +3,10 @@ HashMap<String, PImage> images = new HashMap<String, PImage>();
 
 Group m = new Group();
 Group e = new Group();
+Group powerup = new Group();
 
 UI ui = new UI();
+
 
 PFont SeventhS;
 
@@ -24,9 +26,13 @@ void setup(){
   
   SeventhS = createFont("7th Service",20);
   
+  powerup.spawn = true;
+  powerup.spawnTimer = 1000;
+  powerup.object = new HealPU();
   e.spawn = true;
   e.spawnTimer = 2000;
   e.object = new BasicEnemy();
+  
 }
 
 void draw(){
@@ -36,9 +42,10 @@ void draw(){
   m.update();
   //updateArray(e);
   e.update();
+  //updateArray(powerup);
+  //powerup.update();
   //spawnEnemy();
   ui.update();
-  
 }
 
 
@@ -103,6 +110,9 @@ GameObject[] collisionCheck(Group a, Group b){
     
   return mywilltolive;
 }
+
+
+
 
 //boolean spawn = true;
 
