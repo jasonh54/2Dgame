@@ -15,6 +15,7 @@ class Group{
     for(int i = 0; i < Go.size(); i++){
       Go.get(i).update();
     }
+    Go = cleanGroup();
     if (spawn == true) {
       if (this.timestamp + this.spawnTimer < millis()){
         createObject = true;
@@ -38,9 +39,17 @@ class Group{
     
   }
   
-  public void addObject(GameObject hp){
-    Go.add(hp);
+  public ArrayList<GameObject> cleanGroup() {
+    ArrayList<GameObject> temp = new ArrayList<GameObject>();
+    for (int i = 0; i < Go.size(); i++) {
+      if (Go.get(i).destroy == false){
+        temp.add(Go.get(i));
+      }
+    }
+    return temp;
+    
   }
+ 
   
   
   
