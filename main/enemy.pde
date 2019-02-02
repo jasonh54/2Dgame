@@ -16,6 +16,16 @@ class BasicEnemy extends Enemy{
   }
   public void update(){
     this.y = this.y + this.speedy;
+    //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
+    GameObject[] proj = collisionCheck(this, m);
+    //if the returned array is greater than 1 that means it collided with something
+    if (proj.length > 1){
+      //print out a message 
+      println("Collided with missile");
+      proj[0].destroy = true;
+      proj[1].destroy = true;
+    }
+    
     display();
     
   }

@@ -3,8 +3,11 @@ HashMap<String, PImage> images = new HashMap<String, PImage>();
 
 Group m = new Group();
 Group e = new Group();
+Group powerup = new Group();
 
 UI ui = new UI();
+Timer etimer = new Timer(2000);
+Timer ptimer = new Timer(2000);
 
 PFont SeventhS;
 
@@ -24,9 +27,14 @@ void setup(){
   
   SeventhS = createFont("7th Service",20);
   
-  e.spawn = true;
-  e.spawnTimer = 2000;
-  e.object = new BasicEnemy();
+  //powerup.spawn = true;
+  //powerup.spawnTimer = 1000;
+  //powerup.object = new HealPU();
+  //e.spawn = true;
+  //e.spawnTimer = 2000;
+  //e.object = new BasicEnemy();
+  
+  
 }
 
 void draw(){
@@ -36,8 +44,16 @@ void draw(){
   m.update();
   //updateArray(e);
   e.update();
+  //updateArray(powerup);
+  powerup.update();
   //spawnEnemy();
   ui.update();
+  if(etimer.countDown()){
+    e.addObject(new BasicEnemy());
+  }
+  if(ptimer.countDown()){
+    powerup.addObject(new HealPU());
+  }
   
 }
 
@@ -62,7 +78,7 @@ GameObject[] collisionCheck(Group a, GameObject b){
   //loop through the group and check if every item in the group collides with a single game object
   for (int i = 0; i < a.Go.size(); i++) {
     if (collisionCheck(a.Go.get(i), b) == true) {
-      GameObject[] collide = new GameObject[1];
+      GameObject[] collide = new GameObject[2];
       collide[0] = a.Go.get(i);
       collide[1] = b;
       return collide;
@@ -76,9 +92,9 @@ GameObject[] collisionCheck(GameObject b, Group a){
   //loop through the group and check if every item in the group collides with a single game object
   for (int i = 0; i < a.Go.size(); i++) {
     if (collisionCheck(a.Go.get(i), b) == true) {
-      GameObject[] collide = new GameObject[1];
-      collide[0] = a.Go.get(i);
-      collide[1] = b;
+      GameObject[] collide = new GameObject[2];
+      collide[0] = b;
+      collide[1] = a.Go.get(i);
       return collide;
     }
   }
@@ -103,6 +119,9 @@ GameObject[] collisionCheck(Group a, Group b){
     
   return mywilltolive;
 }
+
+
+
 
 //boolean spawn = true;
 

@@ -19,6 +19,19 @@ public class Player extends GameObject{
     if (this.timestamp + 1000 < millis()) {
       p.shoot = true;
     }
+    GameObject[] power = collisionCheck(this, powerup);
+    if (power.length > 1){
+     if (power[1].tag == "healing") {
+       println("GOT A HEALING ITEM!!!");
+       power[1].destroy = true;
+       health = health + 3;
+     }
+    }
+    GameObject[] en = collisionCheck(this, e);
+    if (en.length > 1){
+      en[1].destroy = true;
+      this.health = this.health - 1;
+    }
   }
   
   public void changeHP(){

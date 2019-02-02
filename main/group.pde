@@ -1,11 +1,6 @@
 class Group{
   
-  public ArrayList<GameObject> Go = new ArrayList<GameObject>();
-  private boolean spawn = false;
-  private boolean createObject = false;
-  private float spawnTimer = 0;
-  private float timestamp = 0;
-  private GameObject object;
+  private ArrayList<GameObject> Go = new ArrayList<GameObject>();
   
   public Group(){
     
@@ -15,22 +10,8 @@ class Group{
     for(int i = 0; i < Go.size(); i++){
       Go.get(i).update();
     }
-    if (spawn == true) {
-      if (this.timestamp + this.spawnTimer < millis()){
-        createObject = true;
-      }
-    }
-    if (createObject == true) {
-      try {
-        addObject((GameObject)object.clone());
-        createObject = false;
-        timestamp = millis();
-        println(timestamp);
-      }
-      catch(Exception e)  {
-        e.printStackTrace();
-      }
-    }
+
+    Go = cleanGroup();
   }
   
   public void addObject(GameObject m){
@@ -38,12 +19,19 @@ class Group{
     
   }
   
+  public ArrayList<GameObject> cleanGroup() {
+    ArrayList<GameObject> temp = new ArrayList<GameObject>();
+    for (int i = 0; i < Go.size(); i++) {
+      if (Go.get(i).destroy == false){
+        temp.add(Go.get(i));
+      }
+    }
+    return temp;
+    
+  }
+ 
   
   
   
-  
-  
-  
-  
-  
+ 
 }
