@@ -19,6 +19,7 @@ void setup(){
   images.put("speeditem", loadImage("../images/speed-powerup.png")); 
   images.put("shielditem", loadImage("../images/shield-powerup.png"));
   images.put("playership", loadImage("../images/spaceship.png"));
+  images.put("playershield", loadImage("../images/players-shield.png"));
   images.put("missile", loadImage("../images/missile.png"));
   images.put("basicenemy", loadImage("../images/enemy-ship-2.png"));
   images.put("strongenemy", loadImage("../images/enemy-ship-1.png"));
