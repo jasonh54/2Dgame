@@ -14,6 +14,8 @@ Timer shtimer = new Timer(2000);
 //the timer for speed bonus
 Timer speedtimer = new Timer(5000);
 
+int score = 0;
+
 void setup(){
   images.put("healitem", loadImage("../images/heal-powerup.png"));
   images.put("speeditem", loadImage("../images/speed-powerup.png")); 
