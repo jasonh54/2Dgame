@@ -1,3 +1,5 @@
+//make it so shield can take a hit: thats all thats left to do for the shield powerup :D
+
 class PowerUps extends GameObject{
   
   public PowerUps(PImage img, String t){
@@ -25,13 +27,21 @@ class HealPU extends PowerUps{
 class SpeedPU extends PowerUps{
   public SpeedPU(){
     super(images.get("speeditem"), "speed");
-    this.speedy = 10;
+    this.speedy = 2;
+  }
+  public void update() {
+    this.y = this.y + this.speedy;
+    display();
   }
 }
 
 class ShieldPU extends PowerUps{
   public ShieldPU(){
     super(images.get("shielditem"), "shield");
-    this.speedy = 10;
+    this.speedy = 1;
+  }
+  public void update() {
+    this.y = this.y + this.speedy;
+    display();
   }
 }

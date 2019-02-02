@@ -10,6 +10,10 @@ public class Player extends GameObject{
   public Player(){
     super(400, 600, 50, 50, images.get("playership"));
   }
+  
+  public void displayShield() {
+    image(images.get("shielditem"), this.x - this.w2, this.y - this.h2, this.w, this.h);  
+  }
 
   
   public void update(){
@@ -21,6 +25,9 @@ public class Player extends GameObject{
     this.x += this.speedx;
     this.y += this.speedy;
     this.display();
+    if(shield == true) {
+      this.displayShield();
+    }
     ui.getPData(this.health, this.timestamp);
     if (ptimer.coolDown()) {
       p.shoot = true;
@@ -31,6 +38,19 @@ public class Player extends GameObject{
        println("GOT A HEALING ITEM!!!");
        power[1].destroy = true;
        health = health + 3;
+     }
+     if (power[1].tag == "speed") {
+       println("got a speed item >:3c");
+       power[1].destroy = true;
+       speed = 3;
+       if (speedtimer.countDown()) {
+         speed = 0;
+       }
+     }
+     if(power[1].tag == "shield") {
+       println("shield uwu");
+       power[1].destroy = true;
+       shield = true;
      }
     }
     GameObject[] en = collisionCheck(this, e);
