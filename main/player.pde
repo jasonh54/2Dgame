@@ -4,6 +4,7 @@ public class Player extends GameObject{
   public boolean shield = false;
   private int timestamp = 0;
   
+  private Timer ptimer = new Timer(1000);
 
 
   public Player(){
@@ -12,11 +13,16 @@ public class Player extends GameObject{
 
   
   public void update(){
+    //cap hp at 5, if the value of hp go pasts 5, set it back to 5
+    if(health > 5){
+       health = 5; 
+    }
+    
     this.x += this.speedx;
     this.y += this.speedy;
     this.display();
     ui.getPData(this.health, this.timestamp);
-    if (this.timestamp + 1000 < millis()) {
+    if (ptimer.coolDown()) {
       p.shoot = true;
     }
     GameObject[] power = collisionCheck(this, powerup);
@@ -59,6 +65,7 @@ void keyPressed() {
       m.addObject(new Projectile(p.x, p.y));
       p.shoot = false;
       p.timestamp = millis();
+      p.ptimer.updateTs();
     }
   }
 }

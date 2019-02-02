@@ -15,4 +15,16 @@ class Timer{
       return false;
     }
   }
+  
+  public boolean coolDown(){
+    if (timeStamp + timeInterval < millis()){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  public void updateTs(){
+    timeStamp = millis();
+  }
 }

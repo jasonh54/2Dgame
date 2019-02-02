@@ -9,8 +9,6 @@ UI ui = new UI();
 Timer etimer = new Timer(2000);
 Timer ptimer = new Timer(2000);
 
-PFont SeventhS;
-
 void setup(){
   images.put("healitem", loadImage("../images/heal-powerup.png"));
   images.put("speeditem", loadImage("../images/speed-powerup.png")); 
@@ -24,8 +22,6 @@ void setup(){
   p = new Player();
   
   size(800, 800);
-  
-  SeventhS = createFont("7th Service",20);
   
   //powerup.spawn = true;
   //powerup.spawnTimer = 1000;
