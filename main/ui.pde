@@ -18,6 +18,10 @@ class UI{
     drawHP();
   }
   
+  public void printScore(){
+    
+  }
+  
   public void drawCooldown(){
     noStroke();
     noFill();
@@ -26,7 +30,6 @@ class UI{
       rect(525,700,(millis()-ptimestamp)/4,50);
     } else {
       fill(255);
-      textFont(SeventhS);
       text("READY",525,690);
       fill(0,128,0);
       rect(525.5,700,250,50);
@@ -36,7 +39,6 @@ class UI{
   public void HPoverlay(){
     noFill();
     if(phealth == 2 || phealth == 1){
-      textFont(SeventhS);
       fill(255,0,0);
       text("LOW HP",25,700);
       
