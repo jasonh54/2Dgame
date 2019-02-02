@@ -3,8 +3,11 @@ HashMap<String, PImage> images = new HashMap<String, PImage>();
 
 Group m = new Group();
 Group e = new Group();
+Group powerup = new Group();
 
 UI ui = new UI();
+Timer etimer = new Timer(2000);
+Timer ptimer = new Timer(2000);
 
 PFont SeventhS;
 
@@ -24,9 +27,14 @@ void setup(){
   
   SeventhS = createFont("7th Service",20);
   
-  e.spawn = true;
-  e.spawnTimer = 2000;
-  e.object = new BasicEnemy();
+  //powerup.spawn = true;
+  //powerup.spawnTimer = 1000;
+  //powerup.object = new HealPU();
+  //e.spawn = true;
+  //e.spawnTimer = 2000;
+  //e.object = new BasicEnemy();
+  
+  
 }
 
 void draw(){
@@ -36,8 +44,16 @@ void draw(){
   m.update();
   //updateArray(e);
   e.update();
+  //updateArray(powerup);
+  powerup.update();
   //spawnEnemy();
   ui.update();
+  if(etimer.countDown()){
+    e.addObject(new BasicEnemy());
+  }
+  if(ptimer.countDown()){
+    powerup.addObject(new HealPU());
+  }
   
 }
 
@@ -58,15 +74,54 @@ boolean collisionCheck(GameObject a, GameObject b) {
   }
 }
 
-boolean collisionCheck(Group a, GameObject b){
+GameObject[] collisionCheck(Group a, GameObject b){
   //loop through the group and check if every item in the group collides with a single game object
-  return false;
+  for (int i = 0; i < a.Go.size(); i++) {
+    if (collisionCheck(a.Go.get(i), b) == true) {
+      GameObject[] collide = new GameObject[2];
+      collide[0] = a.Go.get(i);
+      collide[1] = b;
+      return collide;
+    }
+  }
+  GameObject[] sadnothing = new GameObject[0];
+  return sadnothing;
 }
 
-boolean collisionCheck(GameObject b, Group a){
+GameObject[] collisionCheck(GameObject b, Group a){
   //loop through the group and check if every item in the group collides with a single game object
-  return false;
+  for (int i = 0; i < a.Go.size(); i++) {
+    if (collisionCheck(a.Go.get(i), b) == true) {
+      GameObject[] collide = new GameObject[2];
+      collide[0] = b;
+      collide[1] = a.Go.get(i);
+      return collide;
+    }
+  }
+  GameObject[] sadnothing = new GameObject[0];
+  return sadnothing;
 }
+
+GameObject[] collisionCheck(Group a, Group b){
+  GameObject[] collide = new GameObject[2];
+  GameObject[] mywilltolive = new GameObject[0];
+  
+  //loop time
+  for(int k = 0; k < a.Go.size(); k++){
+    for(int i = 0; i < b.Go.size(); i++){
+      if(collisionCheck(a.Go.get(k), b.Go.get(i))){
+         collide[0] = a.Go.get(k);
+        collide[1] = b.Go.get(i);
+        return collide;
+      } 
+     }
+  }
+    
+  return mywilltolive;
+}
+
+
+
 
 //boolean spawn = true;
 

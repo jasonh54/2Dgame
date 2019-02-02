@@ -1,28 +1,27 @@
 class Spawner {
-  private boolean spawn = false;
-  private boolean createObject = false;
-  private float spawnTimer = 0;
-  private float timestamp = 0;
   private GameObject object;
   //constructor
-  public Spawner(GameObject obj, ){
-    
-    
+  public Spawner(){
   }
   
-  public void update(){
-    if (spawn == true) {
-      if (this.timestamp + this.spawnTimer < millis()){
-        createObject = true;
-      }
-    }
+  public Spawner(GameObject obj){
+    this.object = obj;
   }
   
   public GameObject spawn(){
     try {
-      createObject = false;
-      timestamp = millis();
-      println(timestamp);
+      return (GameObject)object.clone();
+    }
+    catch(Exception e)  {
+      e.printStackTrace();
+      return null;
+    }
+    
+  }
+  
+  public GameObject spawn(GameObject obj){
+    this.object = obj;
+    try {
       return (GameObject)object.clone();
     }
     catch(Exception e)  {

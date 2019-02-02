@@ -1,6 +1,7 @@
 public class Player extends GameObject{
   public int health = 5;
   public boolean shoot = true;
+  public boolean shield = false;
   private int timestamp = 0;
   
 
@@ -17,6 +18,19 @@ public class Player extends GameObject{
     ui.getPData(this.health, this.timestamp);
     if (this.timestamp + 1000 < millis()) {
       p.shoot = true;
+    }
+    GameObject[] power = collisionCheck(this, powerup);
+    if (power.length > 1){
+     if (power[1].tag == "healing") {
+       println("GOT A HEALING ITEM!!!");
+       power[1].destroy = true;
+       health = health + 3;
+     }
+    }
+    GameObject[] en = collisionCheck(this, e);
+    if (en.length > 1){
+      en[1].destroy = true;
+      this.health = this.health - 1;
     }
   }
   
