@@ -6,8 +6,13 @@ Group e = new Group();
 Group powerup = new Group();
 
 UI ui = new UI();
+//spawning timers
 Timer etimer = new Timer(2000);
 Timer ptimer = new Timer(2000);
+Timer sptimer = new Timer(2000);
+Timer shtimer = new Timer(2000);
+//the timer for speed bonus
+Timer speedtimer = new Timer(5000);
 
 PFont SeventhS;
 
@@ -40,19 +45,24 @@ void setup(){
 void draw(){
   clear();
   p.update();
-  //updateArray(m);
+  //update arrays
   m.update();
-  //updateArray(e);
   e.update();
-  //updateArray(powerup);
   powerup.update();
-  //spawnEnemy();
   ui.update();
+  //spawn new basic enemy
   if(etimer.countDown()){
     e.addObject(new BasicEnemy());
   }
+  //spawn new powerups
   if(ptimer.countDown()){
     powerup.addObject(new HealPU());
+  }
+  if(sptimer.countDown()) {
+    powerup.addObject(new SpeedPU());
+  }
+  if(shtimer.countDown()) {
+    powerup.addObject(new ShieldPU());
   }
   
 }
