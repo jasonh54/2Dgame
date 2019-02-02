@@ -1,0 +1,6 @@
+class Timer{
+  
+  public Timer(){
+  
+  }
+}
