@@ -50,6 +50,7 @@ class StrongEnemy extends Enemy{
     }
     if (health <= 0) {
       this.destroy = true;
+      score += 200;
     }
     display();
     
@@ -57,21 +58,37 @@ class StrongEnemy extends Enemy{
 }
 
 class BossEnemy extends Enemy{
+  
   public BossEnemy() {
+    
     super(100, 100, images.get("bossenemy"));
+    this.speedx = 2;
     this.speedy = 1;
+    this.health = 3;
   }
   
   public void update(){
-    this.y = this.y + this.speedy;
-    GameObject[] proj = collisionCheck(this, m);
+    //this.x += speedx;
+    //if(this.x == 0){
+    //  speedx = 2;
+    //} else if(this. x== 700){
+    //  speedx = -2;
+    //}
     
+    this.y = this.y + this.speedy;
+    //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
+    GameObject[] proj = collisionCheck(this, m);
+     //if the returned array is greater than 1 that means it collided with something
+     
       if(proj.length >1){
-      println("Collided with missile");
-      score+=300;
-      proj[0].destroy = true;
-      proj[1].destroy = true;
-    }
+        this.health -= 1;
+        proj[1].destroy = true;
+      }
+      
+      if(this.health <= 0){
+        this.destroy = true;
+        score += 300;
+      }
     
     display();
     
