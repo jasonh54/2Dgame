@@ -5,14 +5,13 @@ public class Player extends GameObject{
   private int timestamp = 0;
   
   private Timer ptimer = new Timer(1000);
-
-
+  
   public Player(){
     super(400, 600, 50, 50, images.get("playership"));
   }
   
   public void displayShield() {
-    image(images.get("shielditem"), this.x - this.w2, this.y - this.h2, this.w, this.h);  
+    image(images.get("playershield"), this.x - this.w2, this.y - this.h2, this.w, this.h);  
   }
 
   
@@ -56,7 +55,11 @@ public class Player extends GameObject{
     GameObject[] en = collisionCheck(this, e);
     if (en.length > 1){
       en[1].destroy = true;
-      this.health = this.health - 1;
+      if (shield == true) {
+        shield = false;
+      } else {
+        this.health = this.health - 1;
+      }
     }
   }
   

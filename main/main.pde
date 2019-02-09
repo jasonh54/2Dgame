@@ -8,17 +8,23 @@ Group powerup = new Group();
 UI ui = new UI();
 //spawning timers
 Timer etimer = new Timer(2000);
-Timer ptimer = new Timer(2000);
-Timer sptimer = new Timer(2000);
-Timer shtimer = new Timer(2000);
+Timer ptimer = new Timer(10000);
+Timer sptimer = new Timer(8000);
+Timer shtimer = new Timer(20000);
 //the timer for speed bonus
 Timer speedtimer = new Timer(5000);
 
 void setup(){
+  PImage healitem = loadImage("../images/heal-powerup.png");
+  PImage speeditem = loadImage("../images/speed-powerup.png");
+  PImage shielditem = loadImage("../images/shield-powerup.png");
+  PImage spaceshipitem = loadImage("../images/spaceship.png");
+
   images.put("healitem", loadImage("../images/heal-powerup.png"));
   images.put("speeditem", loadImage("../images/speed-powerup.png")); 
   images.put("shielditem", loadImage("../images/shield-powerup.png"));
   images.put("playership", loadImage("../images/spaceship.png"));
+  images.put("playershield", loadImage("../images/players-shield.png"));
   images.put("missile", loadImage("../images/missile.png"));
   images.put("basicenemy", loadImage("../images/enemy-ship-2.png"));
   images.put("strongenemy", loadImage("../images/enemy-ship-1.png"));
