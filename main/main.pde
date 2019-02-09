@@ -8,9 +8,10 @@ Group powerup = new Group();
 UI ui = new UI();
 //spawning timers
 Timer etimer = new Timer(2000);
-Timer ptimer = new Timer(10000);
+Timer setimer = new Timer (5000);
+Timer ptimer = new Timer(5000);
 Timer sptimer = new Timer(8000);
-Timer shtimer = new Timer(20000);
+Timer shtimer = new Timer(10000);
 //the timer for speed bonus
 Timer speedtimer = new Timer(5000);
 
@@ -57,6 +58,11 @@ void draw(){
   //spawn new basic enemy
   if(etimer.countDown()){
     e.addObject(new BasicEnemy());
+  }
+  //spawn new strong enemy
+  if (setimer.countDown()) {
+    e.addObject(new StrongEnemy());
+    print("new strongenemy");
   }
   //spawn new powerups
   if(ptimer.countDown()){
