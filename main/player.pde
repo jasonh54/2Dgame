@@ -4,7 +4,7 @@ public class Player extends GameObject{
   public boolean shield = false;
   private int timestamp = 0;
   
-  private Timer ptimer = new Timer(1000);
+  private Timer ptimer = new Timer(500);
   
   public Player(){
     super(400, 600, 50, 50, images.get("playership"));

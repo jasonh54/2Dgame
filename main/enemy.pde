@@ -33,10 +33,12 @@ class BasicEnemy extends Enemy{
 }
 
 class StrongEnemy extends Enemy{
+  private Timer eprojtimer = new Timer(2000);
   public StrongEnemy() {
     super(75, 75, images.get("strongenemy"));
-    this.speedy = 2;
+    this.speedy = 1;
     this.health = 2;
+    
   }
   
   public void update(){
@@ -52,7 +54,9 @@ class StrongEnemy extends Enemy{
       this.destroy = true;
     }
     display();
-    
+    if(this.eprojtimer.countDown()){
+    e.addObject(new EnemyProjectile(this.x, this.y));
+    }
   }
 }
 
