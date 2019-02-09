@@ -10,7 +10,7 @@ UI ui = new UI();
 Timer etimer = new Timer(2000);
 
 //boss enemy timer
-Timer betimer = new Timer(10000);
+Timer betimer = new Timer(20000);
 
 Timer setimer = new Timer (5000);
 Timer ptimer = new Timer(5000);
