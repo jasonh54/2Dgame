@@ -3,15 +3,9 @@ public class Player extends GameObject{
   public boolean shoot = true;
   public boolean shield = false;
   private int timestamp = 0;
-<<<<<<< HEAD
-  private int timer = 0;
-  private float tempspeed = p.speedy * 2;
-=======
   
   private Timer ptimer = new Timer(1000);
-
->>>>>>> 934a9d9a6420321360d7d463947b36863c516f48
-
+  
   public Player(){
     super(400, 600, 50, 50, images.get("playership"));
   }
@@ -37,18 +31,6 @@ public class Player extends GameObject{
     if (ptimer.coolDown()) {
       p.shoot = true;
     }
-<<<<<<< HEAD
-    for (int i = 0; i < sp.size(); i++) {
-      if (collisionCheck(this, sp.get(i))) {
-        sp.get(i).destroy = true;
-        timer = millis();
-        while((timer + 10000) >= millis()) {
-          this.speedy = 
-        }
-      }
-    }
-    
-=======
     GameObject[] power = collisionCheck(this, powerup);
     if (power.length > 1){
      if (power[1].tag == "healing") {
@@ -79,7 +61,6 @@ public class Player extends GameObject{
         this.health = this.health - 1;
       }
     }
->>>>>>> 4918d9607413491450484dd5f2a9a871306e8839
   }
   
   public void changeHP(){

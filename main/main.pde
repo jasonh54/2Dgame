@@ -8,9 +8,9 @@ Group powerup = new Group();
 UI ui = new UI();
 //spawning timers
 Timer etimer = new Timer(2000);
-Timer ptimer = new Timer(2000);
-Timer sptimer = new Timer(2000);
-Timer shtimer = new Timer(2000);
+Timer ptimer = new Timer(10000);
+Timer sptimer = new Timer(8000);
+Timer shtimer = new Timer(20000);
 //the timer for speed bonus
 Timer speedtimer = new Timer(5000);
 
@@ -47,25 +47,11 @@ void setup(){
 void draw(){
   clear();
   p.update();
-<<<<<<< HEAD
-<<<<<<< HEAD
-  updateArray(m);
-  updateArray(e);
-  updateArray(sp);
-  spawnEnemy();
-
-=======
-  //updateArray(m);
-=======
   //update arrays
->>>>>>> 4918d9607413491450484dd5f2a9a871306e8839
   m.update();
   e.update();
   powerup.update();
   ui.update();
-<<<<<<< HEAD
->>>>>>> 934a9d9a6420321360d7d463947b36863c516f48
-=======
   //spawn new basic enemy
   if(etimer.countDown()){
     e.addObject(new BasicEnemy());
@@ -80,7 +66,6 @@ void draw(){
   if(shtimer.countDown()) {
     powerup.addObject(new ShieldPU());
   }
->>>>>>> 4918d9607413491450484dd5f2a9a871306e8839
   
 }
 
@@ -101,33 +86,6 @@ boolean collisionCheck(GameObject a, GameObject b) {
   }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-boolean espawn = true;
-boolean spspawn = true;
-
-void spawnEnemy(){
-  if ((second() % 2) == 0){
-    if(espawn == true){
-      e.add(new BasicEnemy());
-      espawn = false;
-    }
-  } else {
-    espawn = true;
-  }
-}
-void spawnSpeed() {
-  if ((second() % 5) == 0) {
-    if(spspawn == true) {
-      sp.add(new SpeedPU());
-      spspawn = false;
-    }
-  } else {
-    spspawn = true;
-  }
-}
-=======
-=======
 GameObject[] collisionCheck(Group a, GameObject b){
   //loop through the group and check if every item in the group collides with a single game object
   for (int i = 0; i < a.Go.size(); i++) {
@@ -177,7 +135,6 @@ GameObject[] collisionCheck(Group a, Group b){
 
 
 
->>>>>>> 4918d9607413491450484dd5f2a9a871306e8839
 //boolean spawn = true;
 
 //void spawnEnemy() {
@@ -191,4 +148,3 @@ GameObject[] collisionCheck(Group a, Group b){
 //    spawn = true;
 //  }
 //}
->>>>>>> 934a9d9a6420321360d7d463947b36863c516f48
