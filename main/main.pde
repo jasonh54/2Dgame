@@ -31,6 +31,7 @@ void setup(){
   images.put("basicenemy", loadImage("../images/enemy-ship-2.png"));
   images.put("strongenemy", loadImage("../images/enemy-ship-1.png"));
   images.put("bossenemy", loadImage("../images/enemy-ship-3.png"));
+  images.put("emissile", loadImage("../images/alienmissile.png"));
   
   p = new Player();
   
