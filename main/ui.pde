@@ -13,13 +13,16 @@ class UI{
   }
   
   public void update(){
+    printScore();
     drawCooldown();
     HPoverlay();
     drawHP();
   }
   
   public void printScore(){
-    
+    fill(255);
+    text(score,700,75);
+    noFill();
   }
   
   public void drawCooldown(){
@@ -30,6 +33,7 @@ class UI{
       rect(525,700,(millis()-ptimestamp)/4,50);
     } else {
       fill(255);
+      textSize(32);
       text("READY",525,690);
       fill(0,128,0);
       rect(525.5,700,250,50);
@@ -40,6 +44,7 @@ class UI{
     noFill();
     if(phealth == 2 || phealth == 1){
       fill(255,0,0);
+      textSize(24);
       text("LOW HP",25,700);
       
     }/* else if(phealth == 1){
