@@ -35,6 +35,24 @@ class BasicEnemy extends Enemy{
 class StrongEnemy extends Enemy{
   public StrongEnemy() {
     super(75, 75, images.get("strongenemy"));
+    this.speedy = 2;
+    this.health = 2;
+  }
+  
+  public void update(){
+    this.y = this.y + this.speedy;
+    //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
+    GameObject[] proj = collisionCheck(this, m);
+    //if the returned array is greater than 1 that means it collided with something
+    if (proj.length > 1){
+      this.health = this.health - 1;
+      proj[1].destroy = true;
+    }
+    if (health <= 0) {
+      this.destroy = true;
+    }
+    display();
+    
   }
 }
 

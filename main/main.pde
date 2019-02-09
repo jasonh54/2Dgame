@@ -8,11 +8,14 @@ Group powerup = new Group();
 UI ui = new UI();
 //spawning timers
 Timer etimer = new Timer(2000);
+
 //boss enemy timer
 Timer betimer = new Timer(20000);
-Timer ptimer = new Timer(10000);
+
+Timer setimer = new Timer (5000);
+Timer ptimer = new Timer(5000);
 Timer sptimer = new Timer(8000);
-Timer shtimer = new Timer(20000);
+Timer shtimer = new Timer(10000);
 //the timer for speed bonus
 Timer speedtimer = new Timer(5000);
 
@@ -33,6 +36,7 @@ void setup(){
   images.put("basicenemy", loadImage("../images/enemy-ship-2.png"));
   images.put("strongenemy", loadImage("../images/enemy-ship-1.png"));
   images.put("bossenemy", loadImage("../images/enemy-ship-3.png"));
+  images.put("emissile", loadImage("../images/alienmissile.png"));
   
   p = new Player();
   
@@ -60,9 +64,15 @@ void draw(){
   if(etimer.countDown()){
     e.addObject(new BasicEnemy());
   }
+
   //spawn new boss enemy
   if(betimer.countDown()){
     e.addObject(new BossEnemy());
+  }
+  //spawn new strong enemy
+  if (setimer.countDown()) {
+    e.addObject(new StrongEnemy());
+    print("new strongenemy");
   }
   //spawn new powerups
   if(ptimer.countDown()){
