@@ -24,6 +24,15 @@ class EnemyProjectile extends GameObject{
     this.speedy += 0.1;
     this.y += this.speedy;
     
+    GameObject[] proj = collisionCheck(this, m);
+    
+      if(proj.length >1){
+      println("missile hit missle");
+      score+=20;
+      proj[0].destroy = true;
+      proj[1].destroy = true;
+    }
+    
     this.display();
   }
 }

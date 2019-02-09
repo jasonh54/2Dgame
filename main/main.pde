@@ -7,14 +7,17 @@ Group powerup = new Group();
 
 UI ui = new UI();
 //spawning timers
+//basicenemy timer
 Timer etimer = new Timer(2000);
-
 //boss enemy timer
 Timer betimer = new Timer(20000);
-
+//strongenemy timer
 Timer setimer = new Timer (5000);
+//healitem timer
 Timer ptimer = new Timer(5000);
+//speeditem timer
 Timer sptimer = new Timer(8000);
+//shielditem timer
 Timer shtimer = new Timer(10000);
 //the timer for speed bonus
 Timer speedtimer = new Timer(5000);
