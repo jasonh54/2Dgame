@@ -8,6 +8,10 @@ Group powerup = new Group();
 UI ui = new UI();
 //spawning timers
 Timer etimer = new Timer(2000);
+
+//boss enemy timer
+Timer betimer = new Timer(20000);
+
 Timer setimer = new Timer (5000);
 Timer ptimer = new Timer(5000);
 Timer sptimer = new Timer(8000);
@@ -59,6 +63,11 @@ void draw(){
   //spawn new basic enemy
   if(etimer.countDown()){
     e.addObject(new BasicEnemy());
+  }
+
+  //spawn new boss enemy
+  if(betimer.countDown()){
+    e.addObject(new BossEnemy());
   }
   //spawn new strong enemy
   if (setimer.countDown()) {

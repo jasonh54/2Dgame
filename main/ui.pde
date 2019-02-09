@@ -21,7 +21,12 @@ class UI{
   
   public void printScore(){
     fill(255);
-    text(score,700,75);
+    textSize(32);
+    if(score<10000){
+      text(score,700,75);
+    } else {
+      text(score,677,75); 
+    }
     noFill();
   }
   

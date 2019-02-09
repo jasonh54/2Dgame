@@ -59,5 +59,21 @@ class StrongEnemy extends Enemy{
 class BossEnemy extends Enemy{
   public BossEnemy() {
     super(100, 100, images.get("bossenemy"));
+    this.speedy = 1;
+  }
+  
+  public void update(){
+    this.y = this.y + this.speedy;
+    GameObject[] proj = collisionCheck(this, m);
+    
+      if(proj.length >1){
+      println("Collided with missile");
+      score+=300;
+      proj[0].destroy = true;
+      proj[1].destroy = true;
+    }
+    
+    display();
+    
   }
 }
