@@ -10,6 +10,7 @@ class Projectile extends GameObject{
     this.speedy += 0.1;
     this.y -= this.speedy;
     
+    
     this.display();
   }
   

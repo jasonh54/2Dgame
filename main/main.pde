@@ -9,16 +9,20 @@ UI ui = new UI();
 //spawning timers
 //basicenemy timer
 Timer etimer = new Timer(2000);
-//boss enemy timer
+//stronger enemy timer
 Timer betimer = new Timer(20000);
 //strongenemy timer
 Timer setimer = new Timer (5000);
+//boss timer
+Timer bosstimer = new Timer(1000);
 //healitem timer
 Timer htimer = new Timer(5000);
 //speeditem timer
 Timer sptimer = new Timer(8000);
 //shielditem timer
 Timer shtimer = new Timer(10000);
+
+
 
 
 int score = 0;
@@ -37,7 +41,8 @@ void setup(){
   images.put("missile", loadImage("../images/missile.png"));
   images.put("basicenemy", loadImage("../images/enemy-ship-2.png"));
   images.put("strongenemy", loadImage("../images/enemy-ship-1.png"));
-  images.put("bossenemy", loadImage("../images/enemy-ship-3.png"));
+  images.put("strongerenemy", loadImage("../images/enemy-ship-3.png"));
+  images.put("bossenemy", loadImage("../images/bossenemy.png"));
   images.put("emissile", loadImage("../images/alienmissile.png"));
   
   p = new Player();
@@ -69,7 +74,7 @@ void draw(){
 
   //spawn new boss enemy
   if(betimer.countDown()){
-    e.addObject(new BossEnemy());
+    e.addObject(new StrongerEnemy());
   }
   //spawn new strong enemy
   if (setimer.countDown()) {
@@ -85,6 +90,10 @@ void draw(){
   }
   if(shtimer.countDown()) {
     powerup.addObject(new ShieldPU());
+  }
+  
+  if(bosstimer.countDown()){
+    e.addObject(new BossEnemy());
   }
   
 }

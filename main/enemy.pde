@@ -3,7 +3,7 @@ class Enemy extends GameObject{
   private int timestamp = 0;
   
   public Enemy(int w,int h, PImage img){
-    super(random(0, 800), 0, w, h, img);
+    super(random(0, 800), -100, w, h, img);
   }
   
 }
@@ -61,25 +61,85 @@ class StrongEnemy extends Enemy{
   }
 }
 
-class BossEnemy extends Enemy{
+class StrongerEnemy extends Enemy{
   
-  public BossEnemy() {
+  public StrongerEnemy() {
     
-    super(100, 100, images.get("bossenemy"));
+    super(100, 100, images.get("strongerenemy"));
     this.speedx = 2;
     this.speedy = 1;
     this.health = 3;
   }
   
   public void update(){
-    //this.x += speedx;
-    //if(this.x == 0){
-    //  speedx = 2;
-    //} else if(this. x== 700){
-    //  speedx = -2;
+    
+    //if(this.x  == 0){
+    //  this.speedx = 2;
+    //} else if(this.x == 700){
+    //  this.speedx = -2;
     //}
     
+    //this.x += this.speedx;
+    
+ 
     this.y = this.y + this.speedy;
+    
+
+    //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
+    GameObject[] proj = collisionCheck(this, m);
+     //if the returned array is greater than 1 that means it collided with something
+     
+      if(proj.length >1){
+        this.health -= 1;
+        proj[1].destroy = true;
+      }
+      
+      if(this.health <= 0){
+        this.destroy = true;
+        score += 300;
+      }
+    
+    display();
+    
+  }
+}
+
+
+class BossEnemy extends Enemy{
+  
+  public BossEnemy() {
+    
+    super(200, 200, images.get("bossenemy"));
+    this.speedx = 2;
+    this.speedy = 1;
+    this.health = 3;
+  }
+  
+  public void update(){
+    
+    if(this.x > p.x){
+      this.speedx -= 0.1;
+    } else if(this.x < p.x){
+      this.speedx += 0.1;
+    }
+    
+    this.x += this.speedx;
+    
+    if(this.x > p.x-10 && this.x < p.x+10){
+      this.speedx = 0;
+    }
+    
+    if (this.x < 0 || this.x > 800){
+      this.speedx *= -1;
+    }
+    
+    this.y = this.y + this.speedy;
+    
+    if (this.y > 200){
+      this.y = 200;
+    }
+    
+    
     //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
     GameObject[] proj = collisionCheck(this, m);
      //if the returned array is greater than 1 that means it collided with something
