@@ -10,6 +10,7 @@ class GameObject implements Cloneable{
   public PImage img;
   public boolean destroy = false;
   public String tag = "";
+  public int health = 0;
   
   
   public GameObject(){
