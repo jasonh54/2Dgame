@@ -5,6 +5,8 @@ public class Player extends GameObject{
   private int timestamp = 0;
   
   private Timer ptimer = new Timer(500);
+  //the timer for speed bonus
+  private Timer speedtimer = new Timer(5000);
   
   public Player(){
     super(400, 600, 50, 50, images.get("playership"));
@@ -41,16 +43,19 @@ public class Player extends GameObject{
      if (power[1].tag == "speed") {
        println("got a speed item >:3c");
        power[1].destroy = true;
-       speed = 3;
-       if (speedtimer.countDown()) {
-         speed = 0;
-       }
+       speed = 5;
+       speedtimer.updateTs();
+       
      }
+     
      if(power[1].tag == "shield") {
        println("shield uwu");
        power[1].destroy = true;
        shield = true;
      }
+    }
+    if ( speedtimer.countDown() ) {
+         speed = 0;
     }
     GameObject[] en = collisionCheck(this, e);
     if (en.length > 1){

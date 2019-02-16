@@ -19,8 +19,7 @@ Timer ptimer = new Timer(5000);
 Timer sptimer = new Timer(8000);
 //shielditem timer
 Timer shtimer = new Timer(10000);
-//the timer for speed bonus
-Timer speedtimer = new Timer(5000);
+
 
 int score = 0;
 
