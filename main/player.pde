@@ -1,10 +1,14 @@
 public class Player extends GameObject{
   public int health = 5;
   public boolean shoot = true;
+  public boolean fshoot = true;
+  public boolean fallowed = true;
   public boolean shield = false;
   private int timestamp = 0;
+  private int ftimestamp = 0;
   
   private Timer ptimer = new Timer(500);
+  private Timer ftimer = new Timer(1000);
   //the timer for speed bonus
   private Timer speedtimer = new Timer(5000);
   
@@ -32,6 +36,9 @@ public class Player extends GameObject{
     ui.getPData(this.health, this.timestamp);
     if (ptimer.coolDown()) {
       p.shoot = true;
+    }
+    if (ftimer.coolDown()) {
+      p.fshoot = true;
     }
     GameObject[] power = collisionCheck(this, powerup);
     if (power.length > 1){
@@ -94,6 +101,16 @@ void keyPressed() {
       p.shoot = false;
       p.timestamp = millis();
       p.ptimer.updateTs();
+    }
+  }
+  if (keyCode == 81) {
+    if (p.fallowed == true) {
+      if (p.fshoot == true) {
+        m.addObject(new Fireball(p.x, p.y));
+        p.fshoot = false;
+        p.ftimestamp = millis();
+        p.ftimer.updateTs();
+      }
     }
   }
 }
