@@ -14,7 +14,7 @@ Timer betimer = new Timer(20000);
 //strongenemy timer
 Timer setimer = new Timer (5000);
 //healitem timer
-Timer ptimer = new Timer(5000);
+Timer htimer = new Timer(5000);
 //speeditem timer
 Timer sptimer = new Timer(8000);
 //shielditem timer
@@ -78,7 +78,7 @@ void draw(){
     print("new strongenemy");
   }
   //spawn new powerups
-  if(ptimer.countDown()){
+  if(htimer.countDown()){
     powerup.addObject(new HealPU());
   }
   if(sptimer.countDown()) {
