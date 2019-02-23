@@ -45,3 +45,14 @@ class ShieldPU extends PowerUps{
     display();
   }
 }
+
+class WeaponPU extends PowerUps {
+  public WeaponPU() {
+    super(images.get("shielditem"), "weapon");
+    this.speedy = 1;
+  }
+  public void update() {
+    this.y = this.y + this.speedy;
+    display();
+  }
+}
