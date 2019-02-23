@@ -116,7 +116,15 @@ void keyPressed() {
   //space key pressed
   if (keyCode == 32) {
     if(p.shoot == true){
+<<<<<<< HEAD
       m.addObject(new Projectile(p.x, p.y, p.damage));
+=======
+      m.addObject(new Projectile(p.x, p.y));
+      
+      m.addObject(new Projectile60(p.x, p.y));
+      m.addObject(new Projectile120(p.x, p.y));
+      
+>>>>>>> a83b8aeca506e764425efa398c6c66c2a0e240ce
       p.shoot = false;
       p.timestamp = millis();
       p.ptimer.updateTs();
