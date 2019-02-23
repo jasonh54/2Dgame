@@ -111,6 +111,10 @@ void keyPressed() {
   if (keyCode == 32) {
     if(p.shoot == true){
       m.addObject(new Projectile(p.x, p.y));
+      
+      m.addObject(new Projectile60(p.x, p.y));
+      m.addObject(new Projectile120(p.x, p.y));
+      
       p.shoot = false;
       p.timestamp = millis();
       p.ptimer.updateTs();

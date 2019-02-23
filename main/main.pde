@@ -39,6 +39,8 @@ void setup(){
   images.put("playership", loadImage("../images/spaceship.png"));
   images.put("playershield", loadImage("../images/players-shield.png"));
   images.put("missile", loadImage("../images/missile.png"));
+  images.put("missile60", loadImage("../images/missile60.png"));
+  images.put("missile120", loadImage("../images/missile120.png"));
   images.put("basicenemy", loadImage("../images/enemy-ship-2.png"));
   images.put("strongenemy", loadImage("../images/enemy-ship-1.png"));
   images.put("strongerenemy", loadImage("../images/enemy-ship-3.png"));

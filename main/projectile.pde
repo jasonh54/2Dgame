@@ -23,6 +23,53 @@ class Projectile extends GameObject{
   
 }
 
+class Projectile60 extends GameObject{
+  public Projectile60(float x, float y){
+    super(x, y, 25, 25, images.get("missile"));
+    this.speedx = 2;
+  }
+  
+  public void update(){
+    this.speedy += 0.1;
+    this.y -= this.speedy;
+    this.speedx -= 0.02;
+    this.x += this.speedx;
+    
+    GameObject [] proj = collisionCheck(this, e);
+    if (proj.length > 1) {
+      print("missile hit enemy");
+      proj[0].destroy = true;
+      proj[1].health = proj[1].health - 1;
+    }
+    
+    
+    this.display();
+  }
+}
+
+class Projectile120 extends GameObject{
+  public Projectile120(float x, float y){
+    super(x, y, 25, 25, images.get("missile"));
+    this.speedx = 2;
+  }
+  
+  public void update(){
+    this.speedy += 0.1;
+    this.y -= this.speedy;
+    this.speedx -= 0.02;
+    this.x -= this.speedx;
+    
+    GameObject [] proj = collisionCheck(this, e);
+    if (proj.length > 1) {
+      print("missile hit enemy");
+      proj[0].destroy = true;
+      proj[1].health = proj[1].health - 1;
+    }
+    
+    
+    this.display();
+  }
+}
 
 
 class Fireball extends GameObject {
