@@ -14,7 +14,7 @@ Timer betimer = new Timer(20000);
 //strongenemy timer
 Timer setimer = new Timer (5000);
 //boss timer
-Timer bosstimer = new Timer(1000);
+Timer bosstimer = new Timer(10000);
 //healitem timer
 Timer htimer = new Timer(5000);
 //speeditem timer
