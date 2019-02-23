@@ -13,6 +13,7 @@ class GameObject implements Cloneable{
   public int health = 0;
   
   
+  
   public GameObject(){
     this.x = 0;
     this.y = 0;

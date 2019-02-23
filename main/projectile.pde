@@ -1,20 +1,30 @@
 class Projectile extends GameObject{
+  public int damage;
   
-  public Projectile(float x, float y){
+  public Projectile(float x, float y, int damage){
     super(x, y, 25, 25, images.get("missile"));
+    this.damage = damage;
     
   }
+  
+  
   
   
   public void update(){
     this.speedy += 0.1;
     this.y -= this.speedy;
     
+    
+    /* if (score >= 1000) {
+      damage = 2;
+    } */
+    
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
-      print("missile hit enemy");
+      print("missile hit enemy / ");
       proj[0].destroy = true;
-      proj[1].health = proj[1].health - 1;
+      proj[1].health = proj[1].health - this.damage;
+      print("damage = " + damage + " / ");
     }
     
     
@@ -36,7 +46,6 @@ class Fireball extends GameObject {
     this.y -= this.speedy;
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
-      print("missile hit enemy");
       proj[0].destroy = true;
       proj[1].health = proj[1].health - 3;
     }
@@ -58,7 +67,6 @@ class EnemyProjectile extends GameObject{
     GameObject[] proj = collisionCheck(this, m);
     
      if(proj.length >1){
-      println("missile hit missle");
       score+=20;
       proj[0].destroy = true;
       proj[1].destroy = true;

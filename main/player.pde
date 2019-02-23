@@ -2,13 +2,14 @@ public class Player extends GameObject{
   public int health = 5;
   public boolean shoot = true;
   public boolean fshoot = true;
+  public int damage = 1;
   public boolean fallowed = false;
   public boolean shield = false;
   private int timestamp = 0;
   private int ftimestamp = 0;
   
   private Timer ptimer = new Timer(500);
-  private Timer ftimer = new Timer(1000);
+  private Timer ftimer = new Timer(5000);
   //the timer for speed bonus
   private Timer speedtimer = new Timer(5000);
   
@@ -53,22 +54,27 @@ public class Player extends GameObject{
     if (power.length > 1){
       //pickup a heal
      if (power[1].tag == "healing") {
-       println("GOT A HEALING ITEM!!!");
+       println("got a healing item / ");
        power[1].destroy = true;
        health = health + 3;
      }
      //pickup a speed
      if (power[1].tag == "speed") {
-       println("got a speed item >:3c");
+       println("got a speed item / ");
        power[1].destroy = true;
        speed = 5;
        speedtimer.updateTs();
      }
      //pickup a shield
      if(power[1].tag == "shield") {
-       println("shield uwu");
+       println("got a shield item / ");
        power[1].destroy = true;
        shield = true;
+     }
+     //pickup a weapon upgrade
+     if (power[1].tag == "weapon") {
+       println("got a weapon upgrade / ");
+       power[1].destroy = true;
      }
     }
     //speed powerup cooldown
@@ -110,7 +116,7 @@ void keyPressed() {
   //space key pressed
   if (keyCode == 32) {
     if(p.shoot == true){
-      m.addObject(new Projectile(p.x, p.y));
+      m.addObject(new Projectile(p.x, p.y, p.damage));
       p.shoot = false;
       p.timestamp = millis();
       p.ptimer.updateTs();

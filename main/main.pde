@@ -21,8 +21,8 @@ Timer htimer = new Timer(5000);
 Timer sptimer = new Timer(8000);
 //shielditem timer
 Timer shtimer = new Timer(10000);
-
-
+//weaponitem timer
+Timer wtimer = new Timer(2000);
 
 
 int score = 0;
@@ -79,7 +79,6 @@ void draw(){
   //spawn new strong enemy
   if (setimer.countDown()) {
     e.addObject(new StrongEnemy());
-    print("new strongenemy");
   }
   //spawn new powerups
   if(htimer.countDown()){
@@ -90,6 +89,9 @@ void draw(){
   }
   if(shtimer.countDown()) {
     powerup.addObject(new ShieldPU());
+  }
+  if(wtimer.countDown()) {
+    powerup.addObject(new WeaponPU());
   }
   if(bosstimer.countDown()){
     e.addObject(new BossEnemy());
