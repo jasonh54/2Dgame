@@ -18,13 +18,14 @@ class BasicEnemy extends Enemy{
   public void update(){
     this.y = this.y + this.speedy;
     //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
-    GameObject[] proj = collisionCheck(this, m);
-    if (proj.length > 1){
-      println("Collided with missile");
-      score+=100;
-      this.health = this.health - 1;
-      proj[1].destroy = true;
-    }
+    //GameObject[] proj = collisionCheck(this, m);
+    //if (proj.length > 1){
+    //  println("Collided with missile");
+    //  score+=100;
+    //  this.health = this.health - 1;
+    //  proj[1].destroy = true;
+    //}
+    //collision with missile moved to missile class
     if (health <= 0) {
       this.destroy = true;
       score += 100;
@@ -46,12 +47,13 @@ class StrongEnemy extends Enemy{
   public void update(){
     this.y = this.y + this.speedy;
     //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
-    GameObject[] proj = collisionCheck(this, m);
-    //if the returned array is greater than 1 that means it collided with something
-    if (proj.length > 1){
-      this.health = this.health - 1;
-      proj[1].destroy = true;
-    }
+    //GameObject[] proj = collisionCheck(this, m);
+    ////if the returned array is greater than 1 that means it collided with something
+    //if (proj.length > 1){
+    //  this.health = this.health - 1;
+    //  proj[1].destroy = true;
+    //}
+    //collision with missile moved to missile class
     if (health <= 0) {
       this.destroy = true;
       score += 200;
@@ -88,13 +90,14 @@ class StrongerEnemy extends Enemy{
     
 
     //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
-    GameObject[] proj = collisionCheck(this, m);
-     //if the returned array is greater than 1 that means it collided with something
+    //GameObject[] proj = collisionCheck(this, m);
+    // //if the returned array is greater than 1 that means it collided with something
      
-      if(proj.length >1){
-        this.health -= 1;
-        proj[1].destroy = true;
-      }
+    //  if(proj.length >1){
+    //    this.health -= 1;
+    //    proj[1].destroy = true;
+    //  }
+    //collision with missile moved to missile class
       
       if(this.health <= 0){
         this.destroy = true;
@@ -142,14 +145,15 @@ class BossEnemy extends Enemy{
     }
     
     
-    //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
-    GameObject[] proj = collisionCheck(this, m);
-     //if the returned array is greater than 1 that means it collided with something
+    ////utilizing collision check function to check if 1 enemy is colliding with the group of missiles
+    //GameObject[] proj = collisionCheck(this, m);
+    // //if the returned array is greater than 1 that means it collided with something
      
-      if(proj.length >1){
-        this.health -= 1;
-        proj[1].destroy = true;
-      }
+    //  if(proj.length >1){
+    //    this.health -= 1;
+    //    proj[1].destroy = true;
+    //  }
+    //collision with missile moved to missile class
       
       if(this.health <= 0){
         this.destroy = true;

@@ -10,11 +10,20 @@ class Projectile extends GameObject{
     this.speedy += 0.1;
     this.y -= this.speedy;
     
+    GameObject [] proj = collisionCheck(this, e);
+    if (proj.length > 1) {
+      print("missile hit enemy");
+      proj[0].destroy = true;
+      proj[1].health = proj[1].health - 1;
+    }
+    
     
     this.display();
   }
   
 }
+
+
 
 class Fireball extends GameObject {
 
@@ -47,11 +56,15 @@ class EnemyProjectile extends GameObject{
     
     GameObject[] proj = collisionCheck(this, m);
     
-      if(proj.length >1){
+     if(proj.length >1){
       println("missile hit missle");
       score+=20;
       proj[0].destroy = true;
       proj[1].destroy = true;
+    }
+    
+    if(this.health<0){
+      this.destroy = true;
     }
     
     this.display();
