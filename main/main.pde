@@ -91,7 +91,6 @@ void draw(){
   if(shtimer.countDown()) {
     powerup.addObject(new ShieldPU());
   }
-  
   if(bosstimer.countDown()){
     e.addObject(new BossEnemy());
   }

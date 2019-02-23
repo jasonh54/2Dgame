@@ -49,6 +49,7 @@ class EnemyProjectile extends GameObject{
   public EnemyProjectile(float x, float y){
     super(x, y, 25, 25, images.get("emissile"));
     this.speedy = 2;
+    this.health = 1;
   }
   public void update(){
     this.speedy += 0.1;
