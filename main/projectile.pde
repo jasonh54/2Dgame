@@ -16,6 +16,26 @@ class Projectile extends GameObject{
   
 }
 
+class Fireball extends GameObject {
+
+  public Fireball(float x, float y) {
+    super(x, y, 30, 60, images.get("fireball"));
+  }
+  
+  public void update() {
+    this.speedy += 0.2;
+    this.y -= this.speedy;
+    GameObject [] proj = collisionCheck(this, e);
+    if (proj.length > 1) {
+      print("missile hit enemy");
+      proj[0].destroy = true;
+      proj[1].health = proj[1].health - 3;
+    }
+    this.display();
+  }
+
+}
+
 class EnemyProjectile extends GameObject{
   public EnemyProjectile(float x, float y){
     super(x, y, 25, 25, images.get("emissile"));

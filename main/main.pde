@@ -44,6 +44,7 @@ void setup(){
   images.put("strongerenemy", loadImage("../images/enemy-ship-3.png"));
   images.put("bossenemy", loadImage("../images/bossenemy.png"));
   images.put("emissile", loadImage("../images/alienmissile.png"));
+  images.put("fireball", loadImage("../images/fireball.png"));
   
   p = new Player();
   
@@ -71,7 +72,6 @@ void draw(){
   if(etimer.countDown()){
     e.addObject(new BasicEnemy());
   }
-
   //spawn new boss enemy
   if(betimer.countDown()){
     e.addObject(new StrongerEnemy());
