@@ -47,6 +47,7 @@ void setup(){
   images.put("bossenemy", loadImage("../images/bossenemy.png"));
   images.put("emissile", loadImage("../images/alienmissile.png"));
   images.put("fireball", loadImage("../images/fireball.png"));
+  images.put("burstupgrade", loadImage("../images/burstupgrade.png"));
   
   p = new Player();
   
