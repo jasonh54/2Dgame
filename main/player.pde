@@ -1,7 +1,8 @@
-public class Player extends GameObject{
+public class Player extends GameObject {
   public int health = 5;
   public boolean shoot = true;
   public boolean fshoot = true;
+  public int totalWeaponUps = 0;
   public int damage = 1;
   public boolean fallowed = false;
   public boolean shield = false;
@@ -75,6 +76,8 @@ public class Player extends GameObject{
      if (power[1].tag == "weapon") {
        println("got a weapon upgrade / ");
        power[1].destroy = true;
+       totalWeaponUps++;
+       println(totalWeaponUps);
      }
     }
     //speed powerup cooldown
@@ -117,10 +120,8 @@ void keyPressed() {
   if (keyCode == 32) {
     if(p.shoot == true){
       m.addObject(new Projectile(p.x, p.y, p.damage));
-      
       m.addObject(new Projectile60(p.x, p.y));
       m.addObject(new Projectile120(p.x, p.y));
-      
       p.shoot = false;
       p.timestamp = millis();
       p.ptimer.updateTs();
