@@ -19,6 +19,9 @@ class HealPU extends PowerUps{
   public void update(){
     this.y = this.y + this.speedy;
     display();
+    if (this.y > 800) {
+      this.destroy = true;
+    }
   }
   
   
@@ -32,6 +35,9 @@ class SpeedPU extends PowerUps{
   public void update() {
     this.y = this.y + this.speedy;
     display();
+    if (this.y > 800) {
+      this.destroy = true;
+    }
   }
 }
 
@@ -43,16 +49,22 @@ class ShieldPU extends PowerUps{
   public void update() {
     this.y = this.y + this.speedy;
     display();
+    if (this.y > 800) {
+      this.destroy = true;
+    }
   }
 }
 
 class WeaponPU extends PowerUps {
   public WeaponPU() {
-    super(images.get("shielditem"), "weapon");
+    super(images.get("burstupgrade"), "weapon");
     this.speedy = 1;
   }
   public void update() {
     this.y = this.y + this.speedy;
     display();
+    if (this.y > 800) {
+      this.destroy = true;
+    }
   }
 }

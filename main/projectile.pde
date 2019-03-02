@@ -7,17 +7,9 @@ class Projectile extends GameObject{
     
   }
   
-  
-  
-  
   public void update(){
     this.speedy += 0.1;
     this.y -= this.speedy;
-    
-    
-    /* if (score >= 1000) {
-      damage = 2;
-    } */
     
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
@@ -27,7 +19,9 @@ class Projectile extends GameObject{
       print("damage = " + damage + " / ");
     }
     
-    
+    if (this.y > 800) {
+      this.destroy = true;
+    }
     this.display();
   }
   
@@ -53,7 +47,9 @@ class Projectile60 extends Projectile{
       proj[0].destroy = true;
       proj[1].health = proj[1].health - this.damage;
     }
-    
+    if (this.y > 800) {
+      this.destroy = true;
+    }
     
     this.display();
   }
@@ -79,7 +75,9 @@ class Projectile120 extends Projectile{
       proj[0].destroy = true;
       proj[1].health = proj[1].health - this.damage;
     }
-    
+    if (this.y > 800) {
+      this.destroy = true;
+    }
     
     this.display();
   }
@@ -99,6 +97,10 @@ class Fireball extends GameObject {
     if (proj.length > 1) {
       proj[0].destroy = true;
       proj[1].health = proj[1].health - 3;
+    }
+    
+    if (this.y > 800) {
+      this.destroy = true;
     }
     this.display();
   }
@@ -123,10 +125,12 @@ class EnemyProjectile extends GameObject{
       proj[1].destroy = true;
     }
     
-    if(this.health<0){
+    if(this.health < 0){
       this.destroy = true;
     }
-    
+    if (this.y > 800) {
+      this.destroy = true;
+    }
     this.display();
   }
 }

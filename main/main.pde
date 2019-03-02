@@ -8,30 +8,30 @@ Group powerup = new Group();
 UI ui = new UI();
 //spawning timers
 //basicenemy timer
-Timer etimer = new Timer(2000);
+Timer etimer = new Timer(5000);
 //stronger enemy timer
-Timer betimer = new Timer(20000);
+Timer betimer = new Timer(15000);
 //strongenemy timer
-Timer setimer = new Timer (5000);
+Timer setimer = new Timer (7000);
 //boss timer
-Timer bosstimer = new Timer(10000);
+Timer bosstimer = new Timer(20000);
 //healitem timer
-Timer htimer = new Timer(5000);
+Timer htimer = new Timer(7000);
 //speeditem timer
-Timer sptimer = new Timer(8000);
+Timer sptimer = new Timer(10000);
 //shielditem timer
-Timer shtimer = new Timer(10000);
+Timer shtimer = new Timer(13000);
 //weaponitem timer
-Timer wtimer = new Timer(2000);
+Timer wtimer = new Timer(23000);
 
 
 int score = 0;
 
 void setup(){
-  PImage healitem = loadImage("../images/heal-powerup.png");
+  /* PImage healitem = loadImage("../images/heal-powerup.png");
   PImage speeditem = loadImage("../images/speed-powerup.png");
   PImage shielditem = loadImage("../images/shield-powerup.png");
-  PImage spaceshipitem = loadImage("../images/spaceship.png");
+  PImage spaceshipitem = loadImage("../images/spaceship.png"); */
 
   images.put("healitem", loadImage("../images/heal-powerup.png"));
   images.put("speeditem", loadImage("../images/speed-powerup.png")); 
@@ -47,6 +47,7 @@ void setup(){
   images.put("bossenemy", loadImage("../images/bossenemy.png"));
   images.put("emissile", loadImage("../images/alienmissile.png"));
   images.put("fireball", loadImage("../images/fireball.png"));
+  images.put("burstupgrade", loadImage("../images/burstupgrade.png"));
   
   p = new Player();
   
