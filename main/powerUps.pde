@@ -48,7 +48,7 @@ class ShieldPU extends PowerUps{
 
 class WeaponPU extends PowerUps {
   public WeaponPU() {
-    super(images.get("shielditem"), "weapon");
+    super(images.get("burstupgrade"), "weapon");
     this.speedy = 1;
   }
   public void update() {
