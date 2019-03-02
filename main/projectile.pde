@@ -33,23 +33,25 @@ class Projectile extends GameObject{
   
 }
 
-class Projectile60 extends GameObject{
-  public Projectile60(float x, float y){
-    super(x, y, 25, 25, images.get("missile"));
+class Projectile60 extends Projectile{
+  private int angle;
+  public Projectile60(float x, float y, int damage, int angle){
+    super(x,y,damage);
     this.speedx = 2;
+    this.angle = angle;
   }
   
   public void update(){
     this.speedy += 0.1;
     this.y -= this.speedy;
-    this.speedx -= 0.02;
+    this.speedx -= this.angle/100;
     this.x += this.speedx;
     
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
       print("missile hit enemy");
       proj[0].destroy = true;
-      proj[1].health = proj[1].health - 1;
+      proj[1].health = proj[1].health - this.damage;
     }
     
     
@@ -57,23 +59,25 @@ class Projectile60 extends GameObject{
   }
 }
 
-class Projectile120 extends GameObject{
-  public Projectile120(float x, float y){
-    super(x, y, 25, 25, images.get("missile"));
+class Projectile120 extends Projectile{
+  private int angle;
+  public Projectile120(float x, float y, int damage, int angle){
+    super(x, y, damage);
     this.speedx = 2;
+    this.angle = angle;
   }
   
   public void update(){
     this.speedy += 0.1;
     this.y -= this.speedy;
-    this.speedx -= 0.02;
+    this.speedx -= this.angle/100;
     this.x -= this.speedx;
     
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
       print("missile hit enemy");
       proj[0].destroy = true;
-      proj[1].health = proj[1].health - 1;
+      proj[1].health = proj[1].health - this.damage;
     }
     
     

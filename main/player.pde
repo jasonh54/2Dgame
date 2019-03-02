@@ -118,8 +118,8 @@ void keyPressed() {
     if(p.shoot == true){
       m.addObject(new Projectile(p.x, p.y, p.damage));
       
-      m.addObject(new Projectile60(p.x, p.y));
-      m.addObject(new Projectile120(p.x, p.y));
+        m.addObject(new Projectile60(p.x, p.y, p.damage, 1 ));
+        m.addObject(new Projectile120(p.x, p.y, p.damage, 1));
       
       p.shoot = false;
       p.timestamp = millis();
