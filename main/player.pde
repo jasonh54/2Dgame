@@ -121,10 +121,11 @@ void keyPressed() {
     if(p.shoot == true){
       m.addObject(new Projectile(p.x, p.y, p.damage));
 
-      
-        m.addObject(new Projectile60(p.x, p.y, p.damage, 1 ));
-        m.addObject(new Projectile120(p.x, p.y, p.damage, 1));
-      
+      //repeate creation of side missles depending on how many power ups the player gathers
+      for(int i=1; i< p.totalWeaponUps+1; i++){
+        m.addObject(new Projectile60(p.x, p.y, p.damage, i ));
+        m.addObject(new Projectile120(p.x, p.y, p.damage, i));
+      }
 
       p.shoot = false;
       p.timestamp = millis();

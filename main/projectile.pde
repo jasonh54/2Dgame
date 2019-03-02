@@ -28,17 +28,16 @@ class Projectile extends GameObject{
 }
 
 class Projectile60 extends Projectile{
-  private int angle;
-  public Projectile60(float x, float y, int damage, int angle){
+  
+  public Projectile60(float x, float y, int damage, float angle){
     super(x,y,damage);
-    this.speedx = 2;
-    this.angle = angle;
+    this.speedx = angle/4;
   }
   
   public void update(){
     this.speedy += 0.1;
     this.y -= this.speedy;
-    this.speedx -= this.angle/100;
+    //this.speedx -= this.angle/100;
     this.x += this.speedx;
     
     GameObject [] proj = collisionCheck(this, e);
@@ -56,17 +55,16 @@ class Projectile60 extends Projectile{
 }
 
 class Projectile120 extends Projectile{
-  private int angle;
-  public Projectile120(float x, float y, int damage, int angle){
+  
+  public Projectile120(float x, float y, int damage, float angle){
     super(x, y, damage);
-    this.speedx = 2;
-    this.angle = angle;
+    this.speedx = angle/4;
   }
   
   public void update(){
     this.speedy += 0.1;
     this.y -= this.speedy;
-    this.speedx -= this.angle/100;
+    //this.speedx -= this.angle/100;
     this.x -= this.speedx;
     
     GameObject [] proj = collisionCheck(this, e);
