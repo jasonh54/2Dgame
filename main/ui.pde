@@ -7,9 +7,7 @@ class UI{
   private int[] colorArr = new int[]{255,0,0};
   
   public UI(){
-    /*for(int i = 0; i < 200; i++){
-      System.out.println(font.list()[i]);
-    }*/
+    
   }
   
   public void update(){
