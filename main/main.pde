@@ -24,7 +24,7 @@ Timer shtimer = new Timer(13000);
 //weaponitem timer
 Timer wtimer = new Timer(23000);
 
-
+int fireAmmo = 0;
 int score = 0;
 
 void setup(){

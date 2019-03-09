@@ -13,10 +13,8 @@ class Projectile extends GameObject{
     
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
-      print("missile hit enemy / ");
       proj[0].destroy = true;
       proj[1].health = proj[1].health - this.damage;
-      print("damage = " + damage + " / ");
     }
     
     if (this.y > 800) {
@@ -42,7 +40,6 @@ class Projectile60 extends Projectile{
     
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
-      print("missile hit enemy");
       proj[0].destroy = true;
       proj[1].health = proj[1].health - this.damage;
     }
@@ -69,7 +66,6 @@ class Projectile120 extends Projectile{
     
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
-      print("missile hit enemy");
       proj[0].destroy = true;
       proj[1].health = proj[1].health - this.damage;
     }

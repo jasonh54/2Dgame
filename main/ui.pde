@@ -12,6 +12,7 @@ class UI{
   
   public void update(){
     printScore();
+    printFireAmmo();
     drawCooldown();
     HPoverlay();
     drawHP();
@@ -25,6 +26,13 @@ class UI{
     } else {
       text(score,677,75); 
     }
+    noFill();
+  }
+  
+  public void printFireAmmo() {
+    fill(255);
+    textSize(32);
+    text(fireAmmo, 700, 127);
     noFill();
   }
   
@@ -95,6 +103,8 @@ class UI{
     
     
   }
+  
+  
   
   public void getPData(int health, int timestamp){
     phealth = health;
