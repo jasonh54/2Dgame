@@ -8,6 +8,7 @@ public class Player extends GameObject {
   public boolean shield = false;
   private int timestamp = 0;
   private int ftimestamp = 0;
+  private int scorestamp = 0;
   
   private Timer ptimer = new Timer(500);
   private Timer ftimer = new Timer(5000);
@@ -28,10 +29,17 @@ public class Player extends GameObject {
     if(health > 5){
        health = 5; 
     }
-    //once score is 2000, allow fireballs
+    //for every 2000 interval of score, increase the fireball ammo by 1
     if (score >= 2000) {
       fallowed = true;
+      if (score >= scorestamp + 2000) {
+        fireAmmo = fireAmmo + 1;
+        println(fireAmmo);
+        scorestamp = score;
+      }
+      
     }
+    
     //change speeds
     this.x += this.speedx;
     this.y += this.speedy;
@@ -55,7 +63,7 @@ public class Player extends GameObject {
     if (power.length > 1){
       //pickup a heal
      if (power[1].tag == "healing") {
-       println("got a healing item / ");
+      println("got a healing item / ");
        power[1].destroy = true;
        health = health + 3;
      }
@@ -133,7 +141,7 @@ void keyPressed() {
     }
   }
   //Q key pressed
-  if (keyCode == 81) {
+   if (keyCode == 81) {
     if (p.fallowed == true) {
       if (p.fshoot == true) {
         m.addObject(new Fireball(p.x, p.y));
