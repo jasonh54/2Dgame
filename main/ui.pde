@@ -33,15 +33,16 @@ class UI{
   public void drawCooldown(){
     noStroke();
     noFill();
-    if(ptimestamp + 1000 > millis()){
+    //int divide = num/250;
+    if(ptimestamp + 500 > millis()){
       fill(229,0,0);
-      rect(525,700,(millis()-ptimestamp)/4,50);
+      rect(525,700,(millis()-ptimestamp)/2,50);
     } else {
       fill(255);
       textSize(32);
       text("READY",525,690);
       fill(0,128,0);
-      rect(525.5,700,250,50);
+      rect(525,700,250,50);
     }
   }
   
