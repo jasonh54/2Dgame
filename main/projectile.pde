@@ -93,8 +93,10 @@ class Fireball extends GameObject {
     this.y -= this.speedy;
     GameObject [] proj = collisionCheck(this, e);
     if (proj.length > 1) {
+      m.addObject(new Explosion(this.x, this.y));
       proj[0].destroy = true;
       proj[1].health = proj[1].health - 3;
+      
     }
     
     if (this.y > 800) {
@@ -103,6 +105,29 @@ class Fireball extends GameObject {
     this.display();
   }
 
+}
+
+class Explosion extends GameObject{
+  public Explosion(float x, float y){
+    super(x, y, 0, 0, images.get("fireball"));
+  }
+  public void update(){
+    this.w += 5;
+    this.h += 5;
+    this.w2 = this.w/2;
+    this.h2 = this.h/2;
+    
+    GameObject [] proj = circularCollision(this, e);
+    if (proj.length > 1) {
+      proj[1].health = proj[1].health - 1;
+    }
+    
+    display();
+    if(this.h > 400){
+      this.destroy = true;
+    }
+  }
+  
 }
 
 class EnemyProjectile extends GameObject{
@@ -115,15 +140,15 @@ class EnemyProjectile extends GameObject{
     this.speedy += 0.1;
     this.y += this.speedy;
     
-    GameObject[] proj = collisionCheck(this, m);
+    //GameObject[] proj = collisionCheck(this, m);
     
-     if(proj.length >1){
-      score+=20;
-      proj[0].destroy = true;
-      proj[1].destroy = true;
-    }
+    // if(proj.length >1){
+    //  score+=20;
+    //  proj[0].destroy = true;
+    //  proj[1].destroy = true;
+    //}
     
-    if(this.health < 0){
+    if(this.health <= 0){
       this.destroy = true;
     }
     if (this.y > 800) {

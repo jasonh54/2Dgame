@@ -166,6 +166,32 @@ GameObject[] collisionCheck(Group a, Group b){
   return mywilltolive;
 }
 
+boolean circularCollision(GameObject a, GameObject b){
+  float xdistance = abs(a.x - b.x);
+  float ydistance = abs(a.y - b.y);
+  float hypothenus = sqrt(xdistance * xdistance + ydistance * ydistance);
+  float averagesizeA = (a.w2 + a.h2)/2;
+  float averagesizeB = (b.w2 + b.h2)/2;
+  if(averagesizeA + averagesizeB  > hypothenus){
+    return true;
+  }
+  return false;
+}
+
+GameObject[] circularCollision(GameObject a, Group b){
+  //loop through the group and check if every item in the group collides with a single game object
+  for (int i = 0; i < b.Go.size(); i++) {
+    if (circularCollision(b.Go.get(i), a) == true) {
+      GameObject[] collide = new GameObject[2];
+      collide[0] = a;
+      collide[1] = b.Go.get(i);
+      return collide;
+    }
+  }
+  GameObject[] sadnothing = new GameObject[0];
+  return sadnothing;
+  
+}
 
 
 

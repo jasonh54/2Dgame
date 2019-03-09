@@ -20,6 +20,8 @@ class GameObject {
   //health variable
   public int health = 0;
   
+  public float r = 0;
+  
   //default constructor
   public GameObject() {
     //getters
@@ -42,6 +44,7 @@ class GameObject {
     this.h2 = h/2;
     this.img = img;
   }
+
   
   //function that displays the gameobject's image
   public void display() {
