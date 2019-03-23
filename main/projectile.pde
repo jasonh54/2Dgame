@@ -104,9 +104,18 @@ class Fireball extends GameObject {
 }
 
 class Explosion extends GameObject{
+  
+  private SpriteSheet explosion = new SpriteSheet("../images/explosion.png", 5, 5);
+  private int picnum = 0;
   public Explosion(float x, float y){
     super(x, y, 0, 0, images.get("fireball"));
   }
+  
+  void display(){
+    image(explosion.spritesheet[picnum%24], this.x - this.w2, this.y - this.h2, this.w, this.h);
+    picnum++;
+  }
+  
   public void update(){
     this.w += 5;
     this.h += 5;
@@ -119,6 +128,7 @@ class Explosion extends GameObject{
     }
     
     display();
+    
     if(this.h > 400){
       this.destroy = true;
     }

@@ -27,6 +27,7 @@ Timer wtimer = new Timer(23000);
 int fireAmmo = 0;
 int score = 0;
 
+
 void setup(){
   /* PImage healitem = loadImage("../images/heal-powerup.png");
   PImage speeditem = loadImage("../images/speed-powerup.png");
@@ -50,6 +51,8 @@ void setup(){
   images.put("burstupgrade", loadImage("../images/burstupgrade.png"));
   images.put("fireicon", loadImage("../images/firecooldown.png"));
   
+  
+  
   p = new Player();
   
   size(800, 800);
@@ -66,6 +69,8 @@ void setup(){
 
 void draw(){
   clear();
+
+  
   p.update();
   //update arrays
   m.update();
