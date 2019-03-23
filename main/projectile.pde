@@ -163,3 +163,36 @@ class EnemyProjectile extends GameObject{
     this.display();
   }
 }
+
+class BossProjectile extends GameObject{
+  
+  public BossProjectile(float x, float y){
+    super(x , y, 25, 25, images.get("plasmaball"));
+    this.speedy = 0.1;
+    this.health = 1;
+  }
+  
+  public void update(){
+    this.speedy += 0.025;
+    this.y += this.speedy;
+    
+    if(this.health <= 0){
+      this.destroy = true;
+    }
+    
+    if(this.y < 0) {
+      this.destroy = true;
+    }
+    
+    if (this.y > 800) {
+      this.destroy = true;
+    }
+    this.display();
+  }
+  
+}
+ 
+    
+  
+  
+  
