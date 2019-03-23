@@ -1,9 +1,25 @@
+//utilizing collision check function to check if 1 enemy is colliding with the group of missiles
+    //GameObject[] proj = collisionCheck(this, m);
+    // //if the returned array is greater than 1 that means it collided with something
+     
+    //  if(proj.length >1){
+    //    this.health -= 1;
+    //    proj[1].destroy = true;
+    //  }
+    //collision with missile moved to missile class
+    
 class Enemy extends GameObject{
   //public int health = 0;
   private int timestamp = 0;
   
   public Enemy(int w,int h, PImage img){
     super(random(0, 800), -100, w, h, img);
+  }
+  
+  //if points increased 1000, increase hp by the original hp amount
+  public int scalehp(){
+    return (score/1000);
+    
   }
   
 }
@@ -13,19 +29,11 @@ class BasicEnemy extends Enemy{
   public BasicEnemy() {
     super(40, 40, images.get("basicenemy"));
     this.speedy = 3;
-    this.health = 1;
+    this.health = 1 + scalehp();
   }
   public void update(){
     this.y = this.y + this.speedy;
-    //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
-    //GameObject[] proj = collisionCheck(this, m);
-    //if (proj.length > 1){
-    //  println("Collided with missile");
-    //  score+=100;
-    //  this.health = this.health - 1;
-    //  proj[1].destroy = true;
-    //}
-    //collision with missile moved to missile class
+    scalehp();
     if (health <= 0) {
       this.destroy = true;
       score += 100;
@@ -40,20 +48,12 @@ class StrongEnemy extends Enemy{
   public StrongEnemy() {
     super(75, 75, images.get("strongenemy"));
     this.speedy = 1;
-    this.health = 2;
+    this.health = 2 + scalehp();
     
   }
   
   public void update(){
     this.y = this.y + this.speedy;
-    //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
-    //GameObject[] proj = collisionCheck(this, m);
-    ////if the returned array is greater than 1 that means it collided with something
-    //if (proj.length > 1){
-    //  this.health = this.health - 1;
-    //  proj[1].destroy = true;
-    //}
-    //collision with missile moved to missile class
     if (health <= 0) {
       this.destroy = true;
       score += 200;
@@ -72,7 +72,7 @@ class StrongerEnemy extends Enemy{
     super(100, 100, images.get("strongerenemy"));
     this.speedx = 2;
     this.speedy = 1;
-    this.health = 3;
+    this.health = 3 + scalehp();
   }
   
   public void update(){
@@ -89,16 +89,8 @@ class StrongerEnemy extends Enemy{
     this.y = this.y + this.speedy;
     
 
-    //utilizing collision check function to check if 1 enemy is colliding with the group of missiles
-    //GameObject[] proj = collisionCheck(this, m);
-    // //if the returned array is greater than 1 that means it collided with something
-     
-    //  if(proj.length >1){
-    //    this.health -= 1;
-    //    proj[1].destroy = true;
-    //  }
-    //collision with missile moved to missile class
-      
+    
+    
       if(this.health <= 0){
         this.destroy = true;
         score += 300;
@@ -111,13 +103,12 @@ class StrongerEnemy extends Enemy{
 
 
 class BossEnemy extends Enemy{
-  
+  private Timer bprojtimer = new Timer(250);
   public BossEnemy() {
-    
     super(200, 200, images.get("bossenemy"));
     this.speedx = 2;
     this.speedy = 1;
-    this.health = 3;
+    this.health = 4 + scalehp();
   }
   
   public void update(){
@@ -144,21 +135,14 @@ class BossEnemy extends Enemy{
       this.y = 200;
     }
     
-    
-    ////utilizing collision check function to check if 1 enemy is colliding with the group of missiles
-    //GameObject[] proj = collisionCheck(this, m);
-    // //if the returned array is greater than 1 that means it collided with something
-     
-    //  if(proj.length >1){
-    //    this.health -= 1;
-    //    proj[1].destroy = true;
-    //  }
-    //collision with missile moved to missile class
-      
-      if(this.health <= 0){
+    if(this.health <= 0){
         this.destroy = true;
         score += 300;
-      }
+    }
+      
+    if(this.bprojtimer.countDown()){
+      e.addObject(new BossProjectile(this.x, this.y));
+    }
     
     display();
     

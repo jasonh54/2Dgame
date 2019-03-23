@@ -49,6 +49,7 @@ void setup(){
   images.put("fireball", loadImage("../images/fireball.png"));
   images.put("burstupgrade", loadImage("../images/burstupgrade.png"));
   images.put("fireicon", loadImage("../images/firecooldown.png"));
+  images.put("plasmaball", loadImage("../images/plasmaball.png"));
   
   p = new Player();
   
