@@ -1,7 +1,7 @@
 class Projectile extends GameObject{
-  public int damage;
+  public float damage;
   
-  public Projectile(float x, float y, int damage){
+  public Projectile(float x, float y, float damage){
     super(x, y, 25, 25, images.get("missile"));
     this.damage = damage;
     
@@ -27,7 +27,7 @@ class Projectile extends GameObject{
 
 class Projectile60 extends Projectile{
   
-  public Projectile60(float x, float y, int damage, float angle){
+  public Projectile60(float x, float y, float damage, float angle){
     super(x,y,damage);
     this.speedx = angle/4;
   }
@@ -53,7 +53,7 @@ class Projectile60 extends Projectile{
 
 class Projectile120 extends Projectile{
   
-  public Projectile120(float x, float y, int damage, float angle){
+  public Projectile120(float x, float y, float damage, float angle){
     super(x, y, damage);
     this.speedx = angle/4;
   }

@@ -1,9 +1,9 @@
 public class Player extends GameObject {
-  public int health = 5;
+  public float health = 5;
   public boolean shoot = true;
   public boolean fshoot = true;
   public int totalWeaponUps = 0;
-  public int damage = 1;
+  public float damage = 1;
   public boolean shield = false;
   private int timestamp = 0;
   private int ftimestamp = 0;
