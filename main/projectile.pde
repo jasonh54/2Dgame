@@ -188,7 +188,7 @@ class BossProjectile extends GameObject{
       this.destroy = true;
     }
     
-    if(this.y < 0) {
+    if(this.y < -200) {
       this.destroy = true;
     }
     

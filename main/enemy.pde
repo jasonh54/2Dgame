@@ -146,10 +146,7 @@ class BossEnemy extends Enemy{
       
     if(this.bprojtimer.countDown()){
       int temprand = rand.nextInt(3);
-      for(int i = 0; i < 2; i++){
-          e.addObject(new BossProjectile(this.x+randarr[temprand], this.y));
-          System.out.println("temprand: "+temprand);
-      }
+      e.addObject(new BossProjectile(this.x+randarr[temprand], this.y));
     }
     
     display();
