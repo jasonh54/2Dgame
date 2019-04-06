@@ -4,14 +4,13 @@ public class Player extends GameObject {
   public boolean fshoot = true;
   public int totalWeaponUps = 0;
   public int damage = 1;
-  public boolean fallowed = false;
   public boolean shield = false;
   private int timestamp = 0;
   private int ftimestamp = 0;
   private int scorestamp = 0;
   
   private Timer ptimer = new Timer(500);
-  private Timer ftimer = new Timer(5000);
+  private Timer ftimer = new Timer(1000);
   //the timer for speed bonus
   private Timer speedtimer = new Timer(5000);
   
@@ -31,10 +30,9 @@ public class Player extends GameObject {
     }
     //for every 2000 interval of score, increase the fireball ammo by 1
     if (score >= 2000) {
-      fallowed = true;
       if (score >= scorestamp + 2000) {
         fireAmmo = fireAmmo + 1;
-        println(fireAmmo);
+        println("fireammo: " + fireAmmo);
         scorestamp = score;
       }
       
@@ -142,16 +140,17 @@ void keyPressed() {
   }
   //Q key pressed
    if (keyCode == 81) {
-    if (p.fallowed == true) {
       if (p.fshoot == true) {
-        m.addObject(new Fireball(p.x, p.y));
-        p.fshoot = false;
-        p.ftimestamp = millis();
-        p.ftimer.updateTs();
+        if (fireAmmo > 0) {
+          m.addObject(new Fireball(p.x, p.y));
+          p.fshoot = false;
+          p.ftimestamp = millis();
+          p.ftimer.updateTs();
+          fireAmmo = fireAmmo - 1;
+        }
       }
     }
   }
-}
 
 void keyReleased() {
   if (keyCode == 87) {
