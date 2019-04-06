@@ -19,7 +19,7 @@ class GameObject {
   //variable to help differentiate between different child classes of one parent class
   public String tag = "";
   //health variable
-  public int health = 0;
+  public float health = 0;
   public Random rand = new Random();
   
   public float r = 0;
