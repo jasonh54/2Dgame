@@ -106,7 +106,7 @@ void draw(){
   if(bosstimer.countDown()){
     e.addObject(new BossEnemy());
   }
-  } else if(p.health == 0){
+  } else if(p.health <= 0){
       textSize(128);
       text("you died",200,300);
   }
