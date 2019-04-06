@@ -8,13 +8,13 @@ Group powerup = new Group();
 UI ui = new UI();
 //spawning timers
 //basicenemy timer
-Timer etimer = new Timer(5000);
+Timer etimer = new Timer(1500);
 //stronger enemy timer
-Timer betimer = new Timer(15000);
+Timer betimer = new Timer(4000);
 //strongenemy timer
-Timer setimer = new Timer (7000);
+Timer setimer = new Timer (5000);
 //boss timer
-Timer bosstimer = new Timer(20000);
+Timer bosstimer = new Timer(25000);
 //healitem timer
 Timer htimer = new Timer(7000);
 //speeditem timer

@@ -12,8 +12,8 @@ class Enemy extends GameObject{
   //public int health = 0;
   private int timestamp = 0;
   
-  public Enemy(int w,int h, PImage img){
-    super(random(0, 800), -100, w, h, img);
+  public Enemy(int y,int w,int h, PImage img){
+    super(random(0, 800), y, w, h, img);
   }
   
   //if points increased 1000, increase hp by the original hp amount
@@ -26,7 +26,7 @@ class Enemy extends GameObject{
 
 class BasicEnemy extends Enemy{
   public BasicEnemy() {
-    super(40, 40, images.get("basicenemy"));
+    super(-100,40, 40, images.get("basicenemy"));
     this.speedy = 3;
     this.health = 1 + scalehp();
   }
@@ -37,6 +37,10 @@ class BasicEnemy extends Enemy{
       this.destroy = true;
       score += 100;
     }
+    if(y > 850){
+      this.destroy = true;
+    }
+    
     display();
     
   }
@@ -45,7 +49,7 @@ class BasicEnemy extends Enemy{
 class StrongEnemy extends Enemy{
   private Timer eprojtimer = new Timer(2000);
   public StrongEnemy() {
-    super(75, 75, images.get("strongenemy"));
+    super(-100,75, 75, images.get("strongenemy"));
     this.speedy = 1;
     this.health = 2 + scalehp();
     
@@ -57,6 +61,10 @@ class StrongEnemy extends Enemy{
       this.destroy = true;
       score += 200;
     }
+    if(y > 850){
+      this.destroy = true;
+    }
+    
     display();
     if(this.eprojtimer.countDown()){
     e.addObject(new EnemyProjectile(this.x, this.y));
@@ -68,9 +76,9 @@ class StrongerEnemy extends Enemy{
   
   public StrongerEnemy() {
     
-    super(100, 100, images.get("strongerenemy"));
+    super(-100,100, 100, images.get("strongerenemy"));
     this.speedx = 2;
-    this.speedy = 1;
+    this.speedy = 2;
     this.health = 3 + scalehp();
   }
   
@@ -90,10 +98,14 @@ class StrongerEnemy extends Enemy{
 
     
     
-      if(this.health <= 0){
+     if(this.health <= 0){
         this.destroy = true;
         score += 300;
       }
+      
+     if(y > 850){
+      this.destroy = true;
+    }
     
     display();
     
@@ -102,14 +114,14 @@ class StrongerEnemy extends Enemy{
 
 
 class BossEnemy extends Enemy{
-  private Timer bprojtimer = new Timer(250);
+  private Timer bprojtimer = new Timer(200);
   private int[] randarr = new int[3];
   
   public BossEnemy() {
-    super(200, 200, images.get("bossenemy"));
+    super(-300,200, 200, images.get("bossenemy"));
     this.speedx = 2;
     this.speedy = 1;
-    this.health = 4 + scalehp();
+    this.health = 5 + scalehp();
     randarr[0] = -80;
     randarr[1] = 0;
     randarr[2] = 80;
@@ -146,7 +158,11 @@ class BossEnemy extends Enemy{
       
     if(this.bprojtimer.countDown()){
       int temprand = rand.nextInt(3);
-      e.addObject(new BossProjectile(this.x+randarr[temprand], this.y));
+      if(temprand == 1){
+        e.addObject(new BossProjectile(this.x+randarr[temprand], this.y + 40));
+      } else {
+        e.addObject(new BossProjectile(this.x+randarr[temprand], this.y));
+      }
     }
     
     display();

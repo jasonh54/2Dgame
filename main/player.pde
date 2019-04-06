@@ -1,6 +1,7 @@
 public class Player extends GameObject {
   public float health = 5;
   public boolean shoot = true;
+  public boolean shooting = false;
   public boolean fshoot = true;
   public int totalWeaponUps = 0;
   public float damage = 1;
@@ -109,6 +110,23 @@ public class Player extends GameObject {
           }
         }
       }
+
+    }
+    
+    if(shoot == true && shooting == true){
+      m.addObject(new Projectile(p.x, p.y, p.damage));
+
+      //repeate creation of side missles depending on how many power ups the player gathers
+      for(int i=1; i< totalWeaponUps+1; i++){
+        m.addObject(new Projectile60(p.x, p.y, p.damage, i ));
+        m.addObject(new Projectile120(p.x, p.y, p.damage, i));
+      }
+
+      shoot = false;
+      timestamp = millis();
+      ptimer.updateTs();
+    }
+
   }
   
   public void changeHP(){
@@ -133,19 +151,7 @@ void keyPressed() {
   }
   //space key pressed
   if (keyCode == 32) {
-    if(p.shoot == true){
-      m.addObject(new Projectile(p.x, p.y, p.damage));
-
-      //repeate creation of side missles depending on how many power ups the player gathers
-      for(int i=1; i< p.totalWeaponUps+1; i++){
-        m.addObject(new Projectile60(p.x, p.y, p.damage, i ));
-        m.addObject(new Projectile120(p.x, p.y, p.damage, i));
-      }
-
-      p.shoot = false;
-      p.timestamp = millis();
-      p.ptimer.updateTs();
-    }
+    p.shooting = true;
   }
   //Q key pressed
    if (keyCode == 81) {
@@ -173,5 +179,8 @@ void keyReleased() {
   }
   if (keyCode == 65) {
     p.speedx = 0;
+  }
+  if (keyCode == 32) {
+    p.shooting = false;
   }
 }
