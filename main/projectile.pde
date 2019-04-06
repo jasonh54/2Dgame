@@ -105,7 +105,7 @@ class Fireball extends GameObject {
 
 class Explosion extends GameObject{
   
-  private SpriteSheet explosion = new SpriteSheet("../images/explosion.png", 5, 5);
+  private SpriteSheet explosion = new SpriteSheet("../images/explosion_spritesheet.png", 6, 8);
   private int picnum = 0;
   public Explosion(float x, float y){
     super(x, y, 0, 0, images.get("fireball"));
