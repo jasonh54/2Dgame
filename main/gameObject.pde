@@ -1,4 +1,5 @@
 //gameobject class
+import java.util.Random;
 class GameObject {
   //x and y coordinates
   public float x;
@@ -19,6 +20,7 @@ class GameObject {
   public String tag = "";
   //health variable
   public int health = 0;
+  public Random rand = new Random();
   
   public float r = 0;
   

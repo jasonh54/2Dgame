@@ -104,11 +104,16 @@ class StrongerEnemy extends Enemy{
 
 class BossEnemy extends Enemy{
   private Timer bprojtimer = new Timer(250);
+  private int[] randarr = new int[3];
+  
   public BossEnemy() {
     super(200, 200, images.get("bossenemy"));
     this.speedx = 2;
     this.speedy = 1;
     this.health = 4 + scalehp();
+    randarr[0] = -80;
+    randarr[1] = 0;
+    randarr[2] = 80;
   }
   
   public void update(){
@@ -141,7 +146,11 @@ class BossEnemy extends Enemy{
     }
       
     if(this.bprojtimer.countDown()){
-      e.addObject(new BossProjectile(this.x, this.y));
+      int temprand = rand.nextInt(3);
+      for(int i = 0; i < 2; i++){
+          e.addObject(new BossProjectile(this.x+randarr[temprand], this.y));
+          System.out.println("temprand: "+temprand);
+      }
     }
     
     display();
