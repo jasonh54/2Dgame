@@ -169,12 +169,20 @@ class BossProjectile extends GameObject{
   public BossProjectile(float x, float y){
     super(x , y, 25, 25, images.get("plasmaball"));
     this.speedy = 0.1;
+    this.speedx = 0.1;
     this.health = 1;
   }
   
   public void update(){
     this.speedy += 0.025;
     this.y += this.speedy;
+    if(this.x < p.x ){
+      this.speedx += 0.1;
+    }
+    if(this.x > p.x){
+      this.speedx -= 0.1;
+    }
+    this.x += this.speedx;
     
     if(this.health <= 0){
       this.destroy = true;

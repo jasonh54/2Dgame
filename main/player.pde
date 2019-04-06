@@ -84,7 +84,11 @@ public class Player extends GameObject {
      if (power[1].tag == "weapon") {
        println("got a weapon upgrade / ");
        power[1].destroy = true;
-       totalWeaponUps++;
+       if(totalWeaponUps < 2){
+         totalWeaponUps++;
+       } else {
+         damage++;
+       }
        println(totalWeaponUps);
      }
     }

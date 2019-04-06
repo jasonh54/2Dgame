@@ -19,7 +19,6 @@ class Enemy extends GameObject{
   //if points increased 1000, increase hp by the original hp amount
   public int scalehp(){
     return (score/1000);
-    
   }
   
 }
