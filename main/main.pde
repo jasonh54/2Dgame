@@ -71,7 +71,7 @@ void setup(){
 void draw(){
   clear();
 
-  
+  if(p.health >= 1){
   p.update();
   //update arrays
   m.update();
@@ -105,6 +105,10 @@ void draw(){
   }
   if(bosstimer.countDown()){
     e.addObject(new BossEnemy());
+  }
+  } else if(p.health == 0){
+      textSize(128);
+      text("you died",200,300);
   }
   
 }
