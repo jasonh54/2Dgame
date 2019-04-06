@@ -1,6 +1,6 @@
 class UI{
   
-  private int phealth;
+  private float phealth;
   private int ptimestamp;
   private int hpx;
   
@@ -106,7 +106,7 @@ class UI{
   
   
   
-  public void getPData(int health, int timestamp){
+  public void getPData(float health, int timestamp){
     phealth = health;
     ptimestamp = timestamp;
     //System.out.println(phealth + " " + ptimestamp);
