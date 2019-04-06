@@ -9,6 +9,7 @@ public class Player extends GameObject {
   private int timestamp = 0;
   private int ftimestamp = 0;
   private int scorestamp = 0;
+  private int ctimestamp = 0;
   
   private Timer ptimer = new Timer(500);
   private Timer ftimer = new Timer(1000);
@@ -97,13 +98,19 @@ public class Player extends GameObject {
     }
     //player-enemy collisioncheck
     GameObject[] en = collisionCheck(this, e);
-    if (en.length > 1){
-      en[1].destroy = true;
-      if (shield == true) {
-        shield = false;
-      } else {
-        this.health = this.health - 1;
+      if (ctimestamp + 500 <= millis()) {
+        if (en.length > 1){
+          en[1].health = en[1].health - 1;
+          if (shield == true) {
+            shield = false;
+          } else {
+            this.health = this.health - 2;
+            println(health);
+            ctimestamp = millis();
+          }
+        }
       }
+
     }
     
     if(shoot == true && shooting == true){
@@ -119,6 +126,7 @@ public class Player extends GameObject {
       timestamp = millis();
       ptimer.updateTs();
     }
+
   }
   
   public void changeHP(){
